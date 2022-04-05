@@ -52,7 +52,7 @@ public class SQL {
 		try {	
 			sql = 
 				"CREATE TABLE `torneo`.`equipo` "
-				+ "( `nombre` VARCHAR(200) NOT NULL AUTO_INCREMENT,"
+				+ "( `nombre` VARCHAR(200) NOT NULL,"
 				+ " `ganado` int(20) NOT NULL DEFAULT 0 ,"
 				+ " `empate` int(20) NOT NULL DEFAULT 0,"
 				+ " `perdido` int(20) NOT NULL DEFAULT 0,"
@@ -60,8 +60,8 @@ public class SQL {
 				+ " `gol_contra` int(20) NOT NULL DEFAULT 0,"
 				+ " `dif_goles` int(20) NOT NULL DEFAULT 0,"
 				+ " `puntos` int(20) NOT NULL DEFAULT 0,"
-				+ " `grupo` int(20) NOT NULL DEFAULT null,"
-				+ " PRIMARY KEY (`nombre`))"
+				+ " `grupo` VARCHAR(1) NOT NULL DEFAULT 'Z',"
+				+ " PRIMARY KEY (`nombre`));"
 			;
 
 			stmt.executeUpdate(sql);
@@ -76,7 +76,7 @@ public class SQL {
 		try {	
 			sql = 
 				"CREATE TABLE `torneo`.`jugador` "
-				+ "( `ID_Jugador` INT(20) NOT NULL AUTO_INCREMENT,"
+				+ "( `ID_Jugador` INT(20) AUTO_INCREMENT,"
 				+ " `nombre` VARCHAR(255) NOT NULL ,"
 				+ " `apellido` VARCHAR(255) NOT NULL ,"
 				+ " `edad` INT(3) NOT NULL ,"
@@ -88,7 +88,7 @@ public class SQL {
 				+ " `dorsal` INT NOT NULL ,"
 				+ " `Partidos_jugados` INT NOT NULL DEFAULT 0,"
 				+ " `Goles` INT NOT NULL DEFAULT 0,"
-				+ " `salario` INT NOT ,"
+				+ " `salario` INT NOT NULL ,"
 				+ " PRIMARY KEY (`ID_Jugador`),"
 				+ " CONSTRAINT pk_equipo FOREIGN KEY (`equipo`) REFERENCES `torneo`.`equipo`(`nombre`))"
 			;
@@ -138,7 +138,7 @@ public class SQL {
 			;
 
 			stmt.executeUpdate(sql);
-			System.out.println("Tabla arbitro creada");
+			System.out.println("Tabla usuario creada");
 			
 		} catch (SQLException e) {
 			System.out.println("La tabla jugador no se ha podido crear o ya existe");
@@ -194,12 +194,12 @@ public class SQL {
 
 		try {
 			for(String[] i : lista){
-				
-				sql = "INSERT INTO `jugador` (`ID_Jugador`, `nombre`, `apellido`, `edad`, `sexo`, `nacionalidad`, `estado`, `equipo`, `posicion`, `dorsal`, `Partidos_jugados`, `Goles`, `salario`)" 
-					+ "VALUES ('"+ i[0] +"', '"+ i[1] +"', '"+ i[2] +"', '"+ i[3] +"', '"+ i[4] +"', '"+ i[5] +"', '"+ i[6] +"', '"+ i[7] +"', '"+ i[8] +"', '"+ i[9] +"', '0', '0', '"+ i[10] +"');";
-				}
-				
+				sql = "INSERT INTO `jugador` (`ID_Jugador`, `nombre`, `apellido`, `edad`, `sexo`, `nacionalidad`, `estado`, `posicion`, `equipo`, `dorsal`, `Partidos_jugados`, `Goles`, `salario`)" 
+					+ "VALUES ('"+ i[0] +"', '"+ i[1] +"', '"+ i[2] +"', '"+ i[3] +"', '"+ i[4] +"', '"+ i[5] +"', '"+ i[6] +"', '"+ i[7] +"', '"+ i[8].toLowerCase() +"', '"+ i[9] +"', '0', '0', '"+ i[10] +"');"
+				;
 				stmt.executeUpdate(sql);
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -207,14 +207,12 @@ public class SQL {
 
 	public void importarRegistroEquipoSQL(ArrayList<String[]> lista) {
 		try {
-			for(int i = 0;i<lista.size() ;i++){
-				System.out.println(lista.size());
-				System.out.println(lista.get(i).length);
-				System.out.println(lista.get(i)[0]);
-				sql = "INSERT INTO `equipo` (`nombre`)" 
-					+ "VALUES ('"+ lista.get(i)[0] +"');";
-			}
+			for(String[] i : lista){
+				sql = "INSERT INTO `equipo` (`nombre`) VALUES ('"+ i[0].toLowerCase() +"');";
 				stmt.executeUpdate(sql);
+			}
+			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

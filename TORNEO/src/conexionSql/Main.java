@@ -6,6 +6,7 @@ public class Main {
 		SQL sql = new SQL();
 		sql.conexion();
 		sql.crearTablas();
+		sql.importarRegistroEquipoSQL(sql.leer());
 		sql.importarRegistroJugadorSQL(sql.leer());
 	}
 	
