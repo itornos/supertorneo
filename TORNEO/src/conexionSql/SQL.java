@@ -67,6 +67,7 @@ public class SQL {
 			sql = 
 				"CREATE TABLE `torneo`.`equipo` "
 				+ "( `nombre` VARCHAR(200) NOT NULL,"
+				+ " `partidos_jugados` int(20) NOT NULL DEFAULT 0 ,"
 				+ " `ganado` int(20) NOT NULL DEFAULT 0 ,"
 				+ " `empate` int(20) NOT NULL DEFAULT 0,"
 				+ " `perdido` int(20) NOT NULL DEFAULT 0,"
@@ -151,6 +152,32 @@ public class SQL {
 				+ " `PASSWORD` VARCHAR(200) NOT NULL ,"
 				+ " `rol` VARCHAR(20) NOT NULL ,"
 				+ " PRIMARY KEY (`usuario`))"
+			;
+
+			stmt.executeUpdate(sql);
+			System.out.println("Tabla usuario creada");
+			
+		} catch (SQLException e) {
+		}
+
+		//TABLA PARTIDO
+		try {	
+			sql = 
+				"CREATE TABLE `torneo`.`partido` "
+				+ "( `local` VARCHAR(20),"
+				+ " `golesLocal` INT(20) NOT NULL ,"
+				+ " `totalTirosLocal` INT(20) NOT NULL ,"
+				+ " `pasesCompletadosLocal` INT(20) NOT NULL ,"
+				+ " `posesionLocal` INT(20) NOT NULL ,"
+				+ " `visitante` VARCHAR(20),"
+				+ " `golesVisitante` INT(20) NOT NULL ,"
+				+ " `totalTirosVisitante` INT(20) NOT NULL ,"
+				+ " `pasesCompletadossVisitante` INT(20) NOT NULL ,"
+				+ " `posesionV` INT(20) NOT NULL ,"
+				+ " `momentum` VARCHAR(20),"
+				+ " PRIMARY KEY (`local`,`visitante`,`momentum`),"
+				+ " CONSTRAINT pk_local FOREIGN KEY (`local`) REFERENCES `torneo`.`equipo`(`nombre`),"
+				+ " CONSTRAINT pk_visitante FOREIGN KEY (`visitante`) REFERENCES `torneo`.`equipo`(`nombre`))"
 			;
 
 			stmt.executeUpdate(sql);
