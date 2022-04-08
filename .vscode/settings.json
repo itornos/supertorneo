@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "TORNEO/src/conexionSql/mysql-connector-java-8.0.28.jar"
+    ]
+}

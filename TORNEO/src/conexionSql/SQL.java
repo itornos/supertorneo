@@ -196,7 +196,7 @@ public class SQL {
 		//buscar fichero
 		try {
 
-			leer = new BufferedReader(new FileReader(fichero+".txt"));
+			leer = new BufferedReader(new FileReader("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\"+fichero+".txt"));
 
 		} catch (Exception e) {
 			System.out.println("Se ha producido algun problema con el fichero");
