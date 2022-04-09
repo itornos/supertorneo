@@ -19,13 +19,22 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <script src="jquery-3.4.1.min.js"></script>
+<<<<<<< HEAD
 	  <script src="bootstrap.min.js"></script>-
+=======
+	  <script src="bootstrap.min.js"></script>
+>>>>>>> cc81bb1931523740b6e9ef755088ee8a65954ccb
 	  <script src="buscar.js"></script>
     <meta name="generator" content="Nicepage 4.8.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto+Condensed:300,300i,400,400i,700,700i">
     
     
+<<<<<<< HEAD
+=======
+    
+    
+>>>>>>> cc81bb1931523740b6e9ef755088ee8a65954ccb
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -86,7 +95,84 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         </div>
       </div>
     </section>
+<<<<<<< HEAD
 
+=======
+    
+    <?php
+    /*
+      $foo = false;
+      $cont = 0;
+      $repetido = true;
+      $result=mysqli_query($conexion,"SELECT * FROM jugador where nombre = '" .$_POST["buscar"]."' ");
+      while($mostrar=mysqli_fetch_array($result)){ 
+        $foo = true;
+        if($cont == 0) {
+          $aux = $mostrar;
+        }
+        $cont ++;
+        if($cont ==2){
+          $repetido = true;
+          echo "Hay vario jugadores con el mismo nombre, escoge uno:";
+        }
+        if($cont !=1){
+          echo "<br>";
+          echo $mostrar['nombre'];
+          echo" ";
+          echo $mostrar['apellido'];
+          echo " juega en el ";
+          echo $mostrar['equipo'];
+          ?>
+          <form action="buscador_jugadores.php" method="POST" style="padding: 10px;" source="email" name="form-3">
+           <button type="submit">
+             <?php        
+                $valor_final['nombre'] = $aux['nombre'];
+                $valor_final['apellido'] = $aux['apellido'];
+                $valor_final['equipo'] = $aux['equipo'];
+                $valor_final['dorsal'] = $aux['dorsal'];
+                $repetido = false;
+              ?>
+              Haz magia!!!!
+            </button>
+            </form>
+            <br>
+          <?php
+        }
+      }
+      if($cont >1){
+        echo "<br>";
+        echo $aux['nombre'];
+        echo" ";
+        echo $aux['apellido'];
+        echo " juega en el ";
+        echo $aux['equipo'];
+      ?>
+          <form action="buscador_jugadores.php" method="POST" style="padding: 10px;" name="form-3">
+            <a href=             
+              <?php        
+                $valor_final['nombre'] = $aux['nombre'];
+                $valor_final['apellido'] = $aux['apellido'];
+                $valor_final['equipo'] = $aux['equipo'];
+                $valor_final['dorsal'] = $aux['dorsal'];
+              ?>
+              $repetido = false;
+            >Buscar</a>
+            <input type="submit" value="submit" class="u-form-control-hidden">
+          </form>
+          <br>
+        <?php
+      }
+      if(!$reptido){
+        $result=mysqli_query(
+        $conexion,
+        "SELECT * FROM jugador 
+        where nombre = '" .$valor_final['nombre']." AND 'apellido = '" .$valor_final['apellido']."' AND 'dorsal = '" .$valor_final['dorsal']."' AND 'equipo = '" .$valor_final['equipo']."'
+      ");
+      $valor_final=mysqli_fetch_array($result);
+      }else if($cont == 1){ 
+        */
+    ?>
+>>>>>>> cc81bb1931523740b6e9ef755088ee8a65954ccb
     <section class="u-clearfix u-grey-10 u-section-2" id="sec-dedf">
       <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
         <div class="u-layout" style="">
@@ -96,10 +182,17 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
             </div>
             <div class="u-align-center u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-27 u-size-xs-60 u-white u-layout-cell-2" src="">
               <div class="u-container-layout u-container-layout-2">
+<<<<<<< HEAD
                 <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-1" id="id_nombre"></h1>
                 <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-2" id="id_apellido"></h1>
                 <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-3">EQUIPO</h1>
                 <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-4" id="id_equipo"></h1>
+=======
+                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-1"><?php echo $valor_final['nombre'];?></h1>
+                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-2"><?php echo $valor_final['apellido'];?></h1>
+                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-3">EQUIPO</h1>
+                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-4"><?php echo $valor_final['equipo'];?></h1>
+>>>>>>> cc81bb1931523740b6e9ef755088ee8a65954ccb
               </div>
             </div>
           </div>
@@ -114,13 +207,21 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1"><span class="u-file-icon u-icon u-spacing-18 u-text-black u-icon-1"><img src="images/15.png" alt=""></span>
                 <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-2"> POSICOIN</h5>
+<<<<<<< HEAD
                 <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-black u-text-3" id="posicion"></h5>
+=======
+                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-black u-text-3"> ~<?php echo $valor_final['posicion'];?></h5>
+>>>>>>> cc81bb1931523740b6e9ef755088ee8a65954ccb
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-2"><span class="u-file-icon u-icon u-spacing-18 u-icon-2"><img src="images/26397.png" alt=""></span>
                 <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-4"> DORSAL</h5>
+<<<<<<< HEAD
                 <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-black u-text-5" id="dorsal"> ~<?php echo $valor_final['dorsal'];?></h5>
+=======
+                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-black u-text-5"> ~<?php echo $valor_final['dorsal'];?></h5>
+>>>>>>> cc81bb1931523740b6e9ef755088ee8a65954ccb
               </div>
             </div>
           </div>
@@ -171,6 +272,14 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         </div>
       </div>
     </section>
+<<<<<<< HEAD
+=======
+
+    <?php /*
+    } 
+      if ($foo) {*/
+    ?>
+>>>>>>> cc81bb1931523740b6e9ef755088ee8a65954ccb
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-e88d"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Texto de ejemplo&nbsp; xd lol<br>
@@ -185,7 +294,13 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
       </p>
       <a class="u-link" href="html-website-builder" target="_blank">
         <span>HTML Website Builder</span>
+<<<<<<< HEAD
       </a>
     </section>
+=======
+      </a>. 
+    </section>
+    <?php //} ?>
+>>>>>>> cc81bb1931523740b6e9ef755088ee8a65954ccb
   </body>
 </html>
