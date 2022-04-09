@@ -171,11 +171,6 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         </div>
       </div>
     </section>
-
-    <?php /*
-    } 
-      if ($foo) {*/
-    ?>
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-e88d"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Texto de ejemplo&nbsp; xd lol<br>
@@ -190,8 +185,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
       </p>
       <a class="u-link" href="html-website-builder" target="_blank">
         <span>HTML Website Builder</span>
-      </a>. 
+      </a>
     </section>
-    <?php //} ?>-
   </body>
 </html>
