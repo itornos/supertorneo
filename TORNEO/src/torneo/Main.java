@@ -20,7 +20,7 @@ public class Main {
 			switch(cuenta){
 				case 1:
 					while(repetirBucleDos){
-						int autorizacion = sesion.iniciarUsu();
+						int autorizacion = 0; //sesion.iniciarUsu();
 						switch(autorizacion){
 							case 0: System.out.println("No se ha podido encontran al usuario o contraseña especificada\n1_Prueba otra vez\t2_Salir");
 							repetirBucleDos = aux.prueba();
@@ -40,7 +40,7 @@ public class Main {
 					break;
 				default:
 					System.out.println("Numero 1 o 2");
-					Auxiliar.repetido = aux.prueba();
+					Auxiliar.repetido = Auxiliar.prueba();
 			}
 		}
 	}

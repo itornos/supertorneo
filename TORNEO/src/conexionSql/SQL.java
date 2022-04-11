@@ -1,25 +1,35 @@
 package conexionSql;
 
-import java.io.*;
-import java.sql.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
-import torneo.*;
 
 public class SQL {
 
-	Menus menu = new Menus();
-	static Statement stmt = null;
-	String sql="";
-	Process process;
-	
-	public void conexion() throws IOException {
+	public static Statement stmt = null;
+	private static String sql="";
 
-		//arranque base de datos y apache
-		process = Runtime.getRuntime().exec ("C:\\xampp\\xampp_start.exe");
-		process = Runtime.getRuntime().exec ("C:\\xampp\\apache_start.bat");
-		process = Runtime.getRuntime().exec ("C:\\xampp\\mysql_start.bat");
+	public void ejecutarSQL() throws IOException {
+		conexion();
+		crearTablas();
+		importarRegistroEquipoSQL(leer("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\equipo.txt"));
+		importarRegistroJugadorSQL(leer("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\jugador.txt"));
+		importarRegistroArbitroSQL(leer("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\arbitro.txt"));
+		importarRegistroUsuarioSQL(leer("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\usuarios.txt"));
+	}
+	
+	private void conexion() throws IOException {
+
+		//ENCHEGAR XAMPP
+		Runtime.getRuntime().exec ("C:\\xampp\\xampp_start.exe");
+		Runtime.getRuntime().exec ("C:\\xampp\\apache_start.bat");
+		Runtime.getRuntime().exec ("C:\\xampp\\mysql_start.bat");
 
 		//CONECTAR JDBC
 		try {
@@ -60,7 +70,7 @@ public class SQL {
 		}
 	}
 	
-	public void crearTablas() {
+	private void crearTablas() {
 
 		//TABLA EQUIPO
 		try {	
@@ -188,7 +198,7 @@ public class SQL {
 
 	}
 
-	public ArrayList<String[]> leer(String fichero) {
+	public static ArrayList<String[]> leer(String fichero) {
 		
 		BufferedReader leer = null;//leer el fichero
 		ArrayList<String[]> lista = new ArrayList<String[]>();
@@ -196,7 +206,7 @@ public class SQL {
 		//buscar fichero
 		try {
 
-			leer = new BufferedReader(new FileReader("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\"+fichero+".txt"));
+			leer = new BufferedReader(new FileReader(fichero));
 
 		} catch (Exception e) {
 			System.out.println("Se ha producido algun problema con el fichero");
@@ -221,21 +231,23 @@ public class SQL {
 		return lista;
 	}
 
-	public void importarRegistroJugadorSQL(ArrayList<String[]> lista) {
+	public static boolean importarRegistroJugadorSQL(ArrayList<String[]> lista) {
 
 		try {
 			for(String[] i : lista){
-				sql = "INSERT INTO `jugador` (`DNI`, `nombre`, `apellido`, `edad`, `sexo`, `nacionalidad`, `estado`, `posicion`, `equipo`, `dorsal`, `Partidos_jugados`, `Goles`, `salario`)" 
-					+ "VALUES ('"+ i[0] +"', '"+ i[1] +"', '"+ i[2] +"', '"+ i[3] +"', '"+ i[4] +"', '"+ i[5] +"', '"+ i[6] +"', '"+ i[7] +"', '"+ i[8].toLowerCase() +"', '"+ i[9] +"', '0', '0', '"+ i[10] +"');"
+				sql = "INSERT INTO `jugador` (`DNI`, `nombre`, `apellido`, `edad`, `sexo`, `nacionalidad`, `estado`, `posicion`, `equipo`, `dorsal`, `salario`)" 
+					+ "VALUES ('"+ i[0] +"', '"+ i[1] +"', '"+ i[2] +"', '"+ i[3] +"', '"+ i[4] +"', '"+ i[5] +"', '"+ i[6] +"', '"+ i[7] +"', '"+ i[8].toLowerCase() +"', '"+ i[9] +"','"+ i[10] +"');"
 				;
 				stmt.executeUpdate(sql);
 			}
 			
 		} catch (SQLException e) {
+			return true;
 		}
+		return false;
 	}
 
-	public void importarRegistroEquipoSQL(ArrayList<String[]> lista) {
+	private static void importarRegistroEquipoSQL(ArrayList<String[]> lista) {
 		try {
 			for(String[] i : lista){
 				sql = "INSERT INTO `equipo` (`nombre`) VALUES ('"+ i[0].toLowerCase() +"');";
@@ -246,7 +258,7 @@ public class SQL {
 		}
 	}
 
-	public void importarRegistroArbitroSQL(ArrayList<String[]> lista) {
+	public static void importarRegistroArbitroSQL(ArrayList<String[]> lista) {
 		try {
 			for(String[] i : lista){
 				sql = "INSERT INTO arbitro (DNI, nombre, apellido, `edad`, `sexo`, `estado`, `tarj_am`, `tarj_roj`, `corners`, `faltas`)" 
@@ -259,7 +271,7 @@ public class SQL {
 		}
 	}
 
-	public void importarRegistroUsuarioSQL(ArrayList<String[]> lista) {
+	private static void importarRegistroUsuarioSQL(ArrayList<String[]> lista) {
 		
 		try {
 			for(String[] i : lista){

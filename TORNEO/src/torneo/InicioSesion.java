@@ -4,6 +4,11 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import Menus.Principal;
+import conexionSql.SQL;
 
 public class InicioSesion {
 
@@ -93,72 +98,36 @@ public class InicioSesion {
 
 
     //Inicio de sesion
-    public int iniciarUsu() throws IOException{
+    public boolean iniciarUsu(String usu, String pass) throws IOException, SQLException{
+        boolean acierto = false;
 
-        int main=0;
-        int contador=0;
-        saltoDeLinea =0;
-        existe = false;
-        palabra="";
-        caracter=0;
+		try {
+			String sql = "SELECT * FROM usuario";
+			ResultSet consulta = SQL.stmt.executeQuery(sql);
+			
+			while (consulta.next()) {
+				if(consulta.getString("usuario").equals(usu.toString()) && consulta.getString("PASSWORD").equals(pass.toString())) {
 
-        try (FileReader fichero = new FileReader("usuarios.txt")) {
-            System.out.println("Usuario");
-            usuario = Auxiliar.sc.nextLine();
-
-            System.out.println("Contraseña");
-            contrasena = Auxiliar.sc.nextLine();
-
-            while((caracter = fichero.read()) != -1) { 
-
-                if((char)caracter!=';') {
-                	palabra = palabra + (char)caracter;
-                }
-            	else if(usuario.equals(palabra) && !existe){
-                    contador++;
-                    existe=true;
-                    palabra="";
-                }else if (!existe){
-                    saltoDeLinea++;
-                    if(saltoDeLinea==3){
-                        caracter = fichero.read();
-                        saltoDeLinea=0;
-                        }
-                    palabra="";
-
-                }else if(contador==1 && existe){
-                    int intentos=3;
-                    while(intentos>0){
-                        intentos--;
-                        if(contrasena.equals(palabra)){
-                            System.out.println("Se ha iniciado sesion");
-                            contador++;
-                            palabra="";
-                            break;
-                        }else{
-                            System.out.println("La contraseña no coincide con el nombre de usuario");
-                            System.out.println("Tienes "+ (intentos+1) +" mas");
-                            System.out.println("Prueba otra vez:");
-                            contrasena = Auxiliar.sc.nextLine();
-                        }
-                    }
-                    if(intentos==0){
-                        break;
-                    }
-
-                }else if (contador==2 && existe){
-                    switch(palabra){
-                        case "admin": main=1; break;
-                        case "usuario": main=2; break;
-                        case "organizador": main=3; break;
-                    }
-                    break;
-                }
-                
-            }
-            fichero.close();
-        }
-        return main;
+                    acierto = true;
+                    
+                    switch(consulta.getString("rol")){
+	                    case "admin": 
+                            Principal.ejecutar("admin");
+							break;
+	                    case "usuario":
+                            Principal.ejecutar("usuario"); 
+							break;
+	                    case "organizador": 
+                            Principal.ejecutar("organizador"); 
+							break;
+	                }
+				}
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+        return acierto;
     }
 
 
