@@ -270,7 +270,7 @@ public class Menus {
 
 		Registro registro = new Registro();
 		Importar importar = new Importar();
-		InicioSesion sesion = new InicioSesion();
+		Usuarios sesion = new Usuarios();
 		Menus menus = new Menus();
 		Clasificacion clasificacion = new Clasificacion();
 		Preguntas preguntas = new Preguntas();

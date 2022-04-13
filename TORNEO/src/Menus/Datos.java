@@ -1,8 +1,8 @@
 package Menus;
 
-import torneo.PaginaWeb;
+import Otros.PaginaWeb;
 
-public class Datos extends javax.swing.JFrame {
+public class Datos extends BarraMenu {
 
     static String tipoDato;
 
@@ -87,12 +87,20 @@ public class Datos extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        if (tipoDato.equals("jugadores")) {
-            jLabel1.setText("MENU JUGADOR");
-        } else if(tipoDato.equals("arbitros")) {
-            jLabel1.setText("MENU ARBITRO");
-        } else {
-            jLabel1.setText("MENU EQUIPO");
+        //NOMBRE MENUS
+        switch (tipoDato) {
+            case "jugadores":
+                jLabel1.setText("MENU JUGADOR");
+                break;
+            case "arbitros":
+                jLabel1.setText("MENU ARBITRO");
+                break;
+            case "equipos":
+                jLabel1.setText("MENU EQUIPO");
+                break;
+            case "usuarios":
+                jLabel1.setText("MENU USUARIO");
+                break;
         }
         
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -191,60 +199,6 @@ public class Datos extends javax.swing.JFrame {
             );
         }
 
-        jMenu2.setText("Menu Principal");
-
-        jugador.setText("jugador");
-        jugador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jugador(evt);
-            }
-        });
-        jMenu2.add(jugador);
-
-        arbitro.setText("arbitros");
-        arbitro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                arbitroActionPerformed(evt);
-            }
-        });
-        jMenu2.add(arbitro);
-
-        clasificacion.setText("clasificacion");
-        clasificacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clasificacionActionPerformed(evt);
-            }
-        });
-        jMenu2.add(clasificacion);
-
-        equipos.setText("equipos");
-        equipos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                equiposActionPerformed(evt);
-            }
-        });
-        jMenu2.add(equipos);
-
-        registro.setText("registrar usuario");
-        registro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registroActionPerformed(evt);
-            }
-        });
-        jMenu2.add(registro);
-
-        csesion.setText("cerrar sesion");
-        csesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                csesionActionPerformed(evt);
-            }
-        });
-        jMenu2.add(csesion);
-
-        jMenuBar2.add(jMenu2);
-
-        setJMenuBar(jMenuBar2);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -257,50 +211,16 @@ public class Datos extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>    
-    
-    
-    private void arbitroActionPerformed(java.awt.event.ActionEvent evt) {  
-        setVisible(false); 
-        Datos.tipoDato = "arbitros";
-        Datos.ejecutar();                                      
-    }                                          
-
-    private void clasificacionActionPerformed(java.awt.event.ActionEvent evt) { 
-        setVisible(false);                                           
-        Clasificacion.ejecutar();
-    }                                          
-
-    private void equiposActionPerformed(java.awt.event.ActionEvent evt) {  
-        setVisible(false); 
-        Datos.tipoDato = "equipos";                                           
-        Datos.ejecutar();
-    }                                          
-
-    private void registroActionPerformed(java.awt.event.ActionEvent evt) {  
-        setVisible(false);                                          
-        Registro.ejecutar();
-    }                                          
-
-    private void csesionActionPerformed(java.awt.event.ActionEvent evt) { 
-        setVisible(false);                                           
-        Iniciar.ejecutar();
-    }                                          
-
-    private void jugador(java.awt.event.ActionEvent evt) {    
-        setVisible(false);     
-        Datos.tipoDato = "jugadores";                                   
-        Datos.ejecutar();
-    }    
+    }// </editor-fold>       
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {  
         setVisible(false);                                        
-        Registro.ejecutar();
+        RegistrarDatos.ejecutar();
     }                                        
 
     private void sesionActionPerformed(java.awt.event.ActionEvent evt) {                                          
         setVisible(false);                                        
-        Iniciar.ejecutar();
+        IniciarSesion.ejecutar();
     }                                         
 
     private void verActionPerformed(java.awt.event.ActionEvent evt) {     
@@ -313,14 +233,14 @@ public class Datos extends javax.swing.JFrame {
         }
     }                                        
 
-    private void modificarActionPerformed(java.awt.event.ActionEvent evt) { 
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {
         setVisible(false);                                        
         
     }                                        
 
     private void importarActionPerformed(java.awt.event.ActionEvent evt) {     
         setVisible(false);                                      
-        Importar.ejecutar("jugador");
+        ImportarDatos.ejecutar("jugador");
     }                                         
                 
     private javax.swing.JButton ver;
@@ -331,12 +251,12 @@ public class Datos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;   
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jugador;
-    private javax.swing.JMenuItem csesion;
-    private javax.swing.JMenuItem arbitro;
-    private javax.swing.JMenuItem clasificacion;
-    private javax.swing.JMenuItem registro;
-    private javax.swing.JMenuItem equipos;             
+    public javax.swing.JMenu jMenu2;
+    public javax.swing.JMenuBar jMenuBar2;
+    public javax.swing.JMenuItem jugador;
+    public javax.swing.JMenuItem csesion;
+    public javax.swing.JMenuItem arbitro;
+    public javax.swing.JMenuItem clasificacion;
+    public javax.swing.JMenuItem registro;
+    public javax.swing.JMenuItem equipos;             
 }

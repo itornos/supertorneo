@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 
 		Menus menu = new Menus();
-		InicioSesion sesion = new InicioSesion();
+		Usuarios sesion = new Usuarios();
 		Auxiliar aux = new Auxiliar();
 
 		Auxiliar.repetido=true;

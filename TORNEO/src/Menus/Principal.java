@@ -70,7 +70,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        registro.setText("Registrar Usuario");
+        registro.setText("Usuarios");
         registro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registroActionPerformed(evt);
@@ -128,7 +128,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGap(50, 50, 50)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -151,7 +151,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGap(50, 50, 50)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -228,11 +228,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void csesionActionPerformed(java.awt.event.ActionEvent evt) {  
         setVisible(false);                                        
-        Iniciar.ejecutar();
+        IniciarSesion.ejecutar();
     }                                         
 
     private void registroActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+        setVisible(false);
+        Datos.tipoDato = "usuarios";                                         
+        Datos.ejecutar();
     }                                         
 
     private void JugadoresActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -248,7 +250,7 @@ public class Principal extends javax.swing.JFrame {
     }                                        
 
     private void clasificacionActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+        
     }                                        
 
     private javax.swing.JButton Jugadores;

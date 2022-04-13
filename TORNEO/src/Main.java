@@ -1,14 +1,11 @@
-import java.io.IOException;
-
-import Menus.Iniciar;
+import Menus.IniciarSesion;
 import conexionSql.SQL;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-		SQL sql = new SQL();
-		sql.ejecutarSQL();
+		SQL.ejecutarSQL();
+		IniciarSesion.ejecutar();
 		
-		Iniciar.ejecutar();
 	}
 }

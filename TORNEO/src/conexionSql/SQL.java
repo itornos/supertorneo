@@ -1,7 +1,5 @@
 package conexionSql;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,26 +8,33 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import Otros.Ficheros;
+
 public class SQL {
 
 	public static Statement stmt = null;
 	private static String sql="";
 
-	public void ejecutarSQL() throws IOException {
+	public static void ejecutarSQL() {
 		conexion();
 		crearTablas();
-		importarRegistroEquipoSQL(leer("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\equipo.txt"));
-		importarRegistroJugadorSQL(leer("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\jugador.txt"));
-		importarRegistroArbitroSQL(leer("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\arbitro.txt"));
-		importarRegistroUsuarioSQL(leer("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\usuarios.txt"));
+		insertarRegistroEquipoSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\equipo.txt"));
+		insertarRegistroJugadorSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\jugador.txt"));
+		insertarRegistroArbitroSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\arbitro.txt"));
+		insertarRegistroUsuarioSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\usuarios.txt"));
 	}
 	
-	private void conexion() throws IOException {
+	private static void conexion() {
 
 		//ENCHEGAR XAMPP
-		Runtime.getRuntime().exec ("C:\\xampp\\xampp_start.exe");
-		Runtime.getRuntime().exec ("C:\\xampp\\apache_start.bat");
-		Runtime.getRuntime().exec ("C:\\xampp\\mysql_start.bat");
+		try {
+			Runtime.getRuntime().exec ("C:\\xampp\\xampp_start.exe");
+			Runtime.getRuntime().exec ("C:\\xampp\\apache_start.bat");
+			Runtime.getRuntime().exec ("C:\\xampp\\mysql_start.bat");
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 
 		//CONECTAR JDBC
 		try {
@@ -70,7 +75,7 @@ public class SQL {
 		}
 	}
 	
-	private void crearTablas() {
+	private static void crearTablas() {
 
 		//TABLA EQUIPO
 		try {	
@@ -198,40 +203,7 @@ public class SQL {
 
 	}
 
-	public static ArrayList<String[]> leer(String fichero) {
-		
-		BufferedReader leer = null;//leer el fichero
-		ArrayList<String[]> lista = new ArrayList<String[]>();
-
-		//buscar fichero
-		try {
-
-			leer = new BufferedReader(new FileReader(fichero));
-
-		} catch (Exception e) {
-			System.out.println("Se ha producido algun problema con el fichero");
-		}
-
-		try {
-			String texto = leer.readLine();
-				//Repetir mientras no se llegue al final del fichero
-			while(texto != null){
-				String[] atributos = texto.split(";");
-				lista.add(atributos);
-				texto = leer.readLine();
-			}
-
-		}catch(Exception e) {
-
-			System.out.println("Error de lectura del fichero");
-			System.out.println(e.getMessage());
-
-		}
-
-		return lista;
-	}
-
-	public static boolean importarRegistroJugadorSQL(ArrayList<String[]> lista) {
+	public static boolean insertarRegistroJugadorSQL(ArrayList<String[]> lista) {
 
 		try {
 			for(String[] i : lista){
@@ -247,7 +219,7 @@ public class SQL {
 		return false;
 	}
 
-	private static void importarRegistroEquipoSQL(ArrayList<String[]> lista) {
+	public static boolean insertarRegistroEquipoSQL(ArrayList<String[]> lista) {
 		try {
 			for(String[] i : lista){
 				sql = "INSERT INTO `equipo` (`nombre`) VALUES ('"+ i[0].toLowerCase() +"');";
@@ -255,10 +227,12 @@ public class SQL {
 			}
 			
 		} catch (SQLException e) {
+			return true;
 		}
+		return false;
 	}
 
-	public static void importarRegistroArbitroSQL(ArrayList<String[]> lista) {
+	public static boolean insertarRegistroArbitroSQL(ArrayList<String[]> lista) {
 		try {
 			for(String[] i : lista){
 				sql = "INSERT INTO arbitro (DNI, nombre, apellido, `edad`, `sexo`, `estado`, `tarj_am`, `tarj_roj`, `corners`, `faltas`)" 
@@ -268,10 +242,12 @@ public class SQL {
 			}
 			
 		} catch (SQLException e) {
+			return true;
 		}
+		return false;
 	}
 
-	private static void importarRegistroUsuarioSQL(ArrayList<String[]> lista) {
+	public static boolean insertarRegistroUsuarioSQL(ArrayList<String[]> lista) {
 		
 		try {
 			for(String[] i : lista){
@@ -282,7 +258,9 @@ public class SQL {
 			}
 			
 		} catch (SQLException e) {
+			return true;
 		}
+		return false;
 	}
 
 }

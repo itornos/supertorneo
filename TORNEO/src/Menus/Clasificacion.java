@@ -1,5 +1,5 @@
 package Menus;
 
-public class Clasificacion {
+public class Clasificacion extends BarraMenu{
     public static void ejecutar(){}
 }
