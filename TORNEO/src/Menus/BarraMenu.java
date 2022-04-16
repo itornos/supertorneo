@@ -78,28 +78,34 @@ public class BarraMenu extends javax.swing.JFrame{
         }
         
         private void arbitroActionPerformed(java.awt.event.ActionEvent evt) {  
+            setVisible(false);
             Datos.tipoDato = "arbitros";
             Datos.ejecutar();                                      
         }                                          
     
         private void clasificacionActionPerformed(java.awt.event.ActionEvent evt) {                                         
+            setVisible(false);
             Clasificacion.ejecutar();
         }                                          
     
-        private void equiposActionPerformed(java.awt.event.ActionEvent evt) {  
+        private void equiposActionPerformed(java.awt.event.ActionEvent evt) { 
+            setVisible(false); 
             Datos.tipoDato = "equipos";                                           
             Datos.ejecutar();
         }                                          
     
-        private void registroActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        private void registroActionPerformed(java.awt.event.ActionEvent evt) {  
+            setVisible(false);                                        
             RegistrarDatos.ejecutar();
         }                                          
     
-        private void csesionActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        private void csesionActionPerformed(java.awt.event.ActionEvent evt) {   
+            setVisible(false);                                       
             IniciarSesion.ejecutar();
         }                                          
     
-        private void jugador(java.awt.event.ActionEvent evt) {      
+        private void jugador(java.awt.event.ActionEvent evt) {  
+            setVisible(false);    
             Datos.tipoDato = "jugadores";                                   
             Datos.ejecutar();
         } 
