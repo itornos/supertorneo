@@ -6,7 +6,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import conexionSql.SQL;
+import SQL.Acciones;
 
 public class RegistrarDatos extends BarraMenu {
 
@@ -531,7 +531,7 @@ public class RegistrarDatos extends BarraMenu {
                 case "jugadores":
                     String [] jugador = new String[]{DNI.getText(),nombre.getText(),apellido.getText(),edad.getText(),sexo.getText(),nacionalidad.getText(),grupobtn.getSelection().getActionCommand(),posicion.getText(),equipo.getText(),dorsal.getText(),salario.getText()};
                     lista.add(jugador);
-                    if(SQL.insertarRegistroJugadorSQL(lista)){
+                    if(Acciones.insertarRegistroJugadorSQL(lista)){
                         JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos");  
                         return;
                     }  
@@ -539,7 +539,7 @@ public class RegistrarDatos extends BarraMenu {
                 case "arbitros":
                     String [] arbitro = new String[]{DNI.getText(),nombre.getText(),apellido.getText(),edad.getText(),sexo.getText(),grupobtn.getSelection().getActionCommand()};
                     lista.add(arbitro);
-                    if(SQL.insertarRegistroArbitroSQL(lista)){
+                    if(Acciones.insertarRegistroArbitroSQL(lista)){
                         JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
                         return; 
                     }  
@@ -547,7 +547,7 @@ public class RegistrarDatos extends BarraMenu {
                 case "equipos":
                     String [] equipo = new String[]{nombre.getText()};
                     lista.add(equipo);
-                    if(SQL.insertarRegistroEquipoSQL(lista)){
+                    if(Acciones.insertarRegistroEquipoSQL(lista)){
                         JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
                         return; 
                     }  
@@ -561,7 +561,7 @@ public class RegistrarDatos extends BarraMenu {
                         JOptionPane.showMessageDialog(jFrame, "La contraseña no coincide"); 
                         return;
                     }
-                    if(SQL.insertarRegistroUsuarioSQL(lista)){
+                    if(Acciones.insertarRegistroUsuarioSQL(lista)){
                         JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
                         return; 
                     } 

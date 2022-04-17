@@ -223,18 +223,29 @@ public class Datos extends BarraMenu {
         IniciarSesion.ejecutar();
     }                                         
 
-    private void verActionPerformed(java.awt.event.ActionEvent evt) {     
-        if(Datos.tipoDato.equals("jugadores")){                                 
-            PaginaWeb.abrirPagina("jugadores.html");
-        }else if(Datos.tipoDato.equals("arbitros")){
-            PaginaWeb.abrirPagina("arbitros.php");
-        }else{
-            PaginaWeb.abrirPagina("equipos.php");
+    private void verActionPerformed(java.awt.event.ActionEvent evt) {   
+        switch (Datos.tipoDato) {
+            case "jugadores":
+                PaginaWeb.abrirPagina("jugadores.html");  
+            break;
+
+            case "equipos":
+                PaginaWeb.abrirPagina("equipos.php");  
+            break;
+
+            case "arbitros":
+                PaginaWeb.abrirPagina("arbitros.php"); 
+            break;
+
+            case "usuarios":
+                
+            break;
         }
     }                                        
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {
-        setVisible(false);                                        
+        setVisible(false);  
+        ModificarDatos.ejecutar();                                      
         
     }                                        
 

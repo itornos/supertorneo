@@ -2,10 +2,6 @@ package torneo;
 
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
 public class Clasificacion {
     static int numeroEquipos = 0;
     static int numeroGrupos = 0;
@@ -105,7 +101,6 @@ public class Clasificacion {
                 if(grupoi == grupoList){
                     auxnombre [pos] = grupos.get(j).equipo;
                     pos++;
-                    nadaquever();//eliminar para evitar alerta de sorteo
                 }
             }
             auxnombre=aux.ordenarE(auxnombre);
@@ -176,32 +171,5 @@ public class Clasificacion {
             return;
         }
         brackets();
-    }
-
-    //Alerta de sorteo
-    public void nadaquever(){
-        ImageIcon icon = new ImageIcon("sorteo.gif");
-        JLabel label = new JLabel(icon);
-
-        JFrame f = new JFrame("SORTEO ATENTOS");
-        f.getContentPane().add(label);
-        f.pack();
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
-        ImageIcon icono = new ImageIcon("sorteo-2.gif");
-        JLabel labelo = new JLabel(icono);
-
-        f.getContentPane().add(labelo);
-        f.pack();
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
-
-        ImageIcon icono0 = new ImageIcon("sorteo-3.gif");
-        JLabel labelo0 = new JLabel(icono0);
-
-        f.getContentPane().add(labelo0);
-        f.pack();
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
     }
 }

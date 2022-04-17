@@ -54,7 +54,7 @@ public class BarraMenu extends javax.swing.JFrame{
 
             if (Principal.rol.equals("admin")) {
                 
-                registro.setText("registrar usuario");
+                registro.setText("usuarios");
                 registro.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         registroActionPerformed(evt);
@@ -95,8 +95,9 @@ public class BarraMenu extends javax.swing.JFrame{
         }                                          
     
         private void registroActionPerformed(java.awt.event.ActionEvent evt) {  
-            setVisible(false);                                        
-            RegistrarDatos.ejecutar();
+            setVisible(false);
+            Datos.tipoDato = "usuarios";                                         
+            Datos.ejecutar();
         }                                          
     
         private void csesionActionPerformed(java.awt.event.ActionEvent evt) {   

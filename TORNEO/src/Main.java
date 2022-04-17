@@ -1,10 +1,10 @@
 import Menus.IniciarSesion;
-import conexionSql.SQL;
+import SQL.Iniciar;
 
 public class Main {
     public static void main(String[] args) {
 
-		SQL.ejecutarSQL();
+		Iniciar.ejecutarSQL();
 		IniciarSesion.ejecutar();
 		
 	}
