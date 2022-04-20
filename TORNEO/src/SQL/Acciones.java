@@ -112,4 +112,22 @@ public class Acciones {
 
 		return null;	
 	}
+
+	public static String getRol(String id){
+		Iniciar.sql = "Select rol from usuario where usuario = '"+id+"';";
+		String rol = "";
+
+		try {
+			ResultSet rs = Iniciar.stmt.executeQuery(Iniciar.sql);
+
+			while (rs.next()) {
+				rol = rs.getString("rol");
+			}
+
+		} catch (Exception e) {
+			System.out.println("fallo");
+		}
+		return rol;
+
+	}
 }

@@ -472,14 +472,12 @@ public class ModificarDatos extends BarraMenu {
         }
         if(error){
             JOptionPane.showMessageDialog(jFrame, "Algo ha salido mal con la modificacion"); 
-        }else{
-            JOptionPane.showMessageDialog(jFrame, "Se han modicado los datos");
         }
     }    
 
     private boolean modificarJugador(){
 
-        boolean error = false;
+        boolean error = true;
 
         //modificar DNI
         if(jTextField1.getText().length()!=0){
@@ -521,12 +519,19 @@ public class ModificarDatos extends BarraMenu {
         if(jTextField10.getText().length()!=0){
             error = Acciones.modificarDatoSQL(jTextField6.getText(), "jugador", "dorsal", dato.getSelectedItem(), "ID_Jugador");
         }
+
+        if(!error){
+            JOptionPane.showMessageDialog(jFrame, "Se han modicado los datos");
+        }else{
+            error = false;
+        }
+
         return error;
     }
 
     private boolean modificarArbitro(){
 
-        boolean error = false;
+        boolean error = true;
         
         //modificar DNI
         if(jTextField1.getText().length()!=0){
@@ -552,23 +557,37 @@ public class ModificarDatos extends BarraMenu {
         if(jTextField8.getText().length()!=0){
             error = Acciones.modificarDatoSQL(jTextField8.getText(), "arbitro", "estado", dato.getSelectedItem(), "ID_arbitro");
         }
+
+        if(!error){
+            JOptionPane.showMessageDialog(jFrame, "Se han modicado los datos");
+        }else{
+            error = false;
+        }
+
         return error;
     }
 
     private boolean modificarEquipo(){
 
-        boolean error = false;
+        boolean error = true;
         
         //modificar nombre equipo
         if(jTextField1.getText().length()!=0){
             error = Acciones.modificarDatoSQL(jTextField1.getText(), "equipo", "nombre", dato.getSelectedItem(), "nombre");
         }
+        
+        if(!error){
+            JOptionPane.showMessageDialog(jFrame, "Se han modicado los datos");
+        }else{
+            error = false;
+        }
+
         return error;
     }
 
     private boolean modificarUsuario(){
 
-        boolean error = false;
+        boolean error = true;
         
         //modificar nombre
         if(jTextField1.getText().length()!=0){
@@ -578,16 +597,25 @@ public class ModificarDatos extends BarraMenu {
         //modificar pass
         if(jTextField2.getText().length()!=0){
             if (jTextField2.getText().equals(jTextField3.getText())) {
-                error = Acciones.modificarDatoSQL(jTextField1.getText(), "usuario", "PASSWORD", dato.getSelectedItem(), "usuario");
+                error = Acciones.modificarDatoSQL(jTextField2.getText(), "usuario", "PASSWORD", dato.getSelectedItem(), "usuario");
             }else{
-                JOptionPane.showMessageDialog(jFrame, "La contraseña no es igual bobo"); 
-                error = true;
+                JOptionPane.showMessageDialog(jFrame, "La contraseña no coincide");
+                return false;
             }
         }
 
         //modificar rol
         String role = (String) rol.getSelectedItem();
-        error = Acciones.modificarDatoSQL(role, "usuario", "rol", dato.getSelectedItem(), "usuario");
+        
+        if (!role.equals(Acciones.getRol((String) dato.getSelectedItem()))) {
+            error = Acciones.modificarDatoSQL(role, "usuario", "rol", dato.getSelectedItem(), "usuario");
+        }
+        
+        if(!error){
+            JOptionPane.showMessageDialog(jFrame, "Se han modicado los datos");
+        }else{
+            error = false;
+        }
 
         return error;
     }
