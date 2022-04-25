@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import Menus.Principal;
-import SQL.Iniciar;
+import SQL.Acciones;
 
 public class Usuarios {
 
@@ -14,33 +17,33 @@ public class Usuarios {
         boolean acierto = false;
 
 		try {
-			String sql = "SELECT * FROM usuario";
-			ResultSet consulta = Iniciar.stmt.executeQuery(sql);
-			
-			while (consulta.next()) {
-				if(consulta.getString("usuario").equals(usu.toString()) && consulta.getString("PASSWORD").equals(pass.toString())) {
 
-                    acierto = true;
+			ResultSet consulta = Acciones.getUsuario(usu);
+
+			consulta.next();
+			
+			if(consulta.getString("usuario").equals(usu.toString()) && consulta.getString("PASSWORD").equals(pass.toString())) {
+
+                acierto = true;
                     
-                    switch(consulta.getString("rol")){
-	                    case "admin": 
-                            Principal.ejecutar("admin");
-							break;
-	                    case "usuario":
-                            Principal.ejecutar("usuario"); 
-							break;
-	                    case "organizador": 
-                            Principal.ejecutar("organizador"); 
-							break;
-	                }
-
-                    break;
-				}
+                switch(consulta.getString("rol")){
+	                case "admin": 
+                        Principal.ejecutar("admin");
+						break;
+	                case "usuario":
+                        Principal.ejecutar("usuario"); 
+						break;
+	                case "organizador": 
+                        Principal.ejecutar("organizador"); 
+						break;
+	            }
+			}else if(consulta.getString("usuario").equals(usu.toString())){
+				JFrame jFrame = new JFrame();
+				JOptionPane.showMessageDialog(jFrame, "La contraseña no existe");
 			}
+
 			
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
+		}catch (Exception e) {}
         return acierto;
     }
 }
