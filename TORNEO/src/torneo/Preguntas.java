@@ -8,6 +8,8 @@ public class Preguntas {
     Menus menu = new Menus();
 	Clasificacion clasificacion = new Clasificacion();
 	
+
+	//Metodo para registrar los partidos (adaptar a la base de datos) tener en cuenta las estadisticas de los jugadores,quien juega, si pertenecen a ese equipo, si se marcan goles quien los ha marcado etc...
 	public void preguntasPartido(){
 		
 		Partido partido = new Partido();
@@ -205,6 +207,9 @@ public class Preguntas {
 		}
 
 	}
+
+
+	//Autogeneracion de todos los partidos, no va muy bien (Perfeccionar para poder hacer todo el torneo facil y rapido)
 	public void preguntasPartidoAutomatico(){
 		
 		Partido partido = new Partido();
