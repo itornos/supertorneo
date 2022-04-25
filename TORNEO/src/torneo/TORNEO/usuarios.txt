@@ -1,3 +1,0 @@
-admin;123;admin;
-usuario;123;usuario;
-organizador;123;organizador;
