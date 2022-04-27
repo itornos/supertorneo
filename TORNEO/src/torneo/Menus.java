@@ -19,7 +19,7 @@ public class Menus {
         System.out.println("||______________________||");
     }
 
-
+	//Menu para la clasificacion Usuario
 	public void menuCUsuario(){
         System.out.println("  ______________________  ");
         System.out.println("||                      ||");
@@ -31,7 +31,11 @@ public class Menus {
         System.out.println("||______________________||");
     }
 
+	///////////////////////////////////////////////////////////////
 
+	
+
+	//Menus Partidos
 	public void menuP(){
         System.out.println("  ________________________________________ ");
         System.out.println("||                                        ||");
@@ -44,7 +48,7 @@ public class Menus {
         System.out.println("||________________________________________||");
     }
 
-
+	//Menus Partidos Ususario
 	public void menuPUsuario(){
         System.out.println("  _______________________________ ");
         System.out.println("||                               ||");
@@ -55,6 +59,11 @@ public class Menus {
         System.out.println("||_______________________________||");
     }
 
+	///////////////////////////////////////////////////////////////
+
+
+
+	//Ejemplo: https://as.com/futbol/2018/07/10/mundial/1531223313_934411.html
     public static void brackets(){
 		for(int i=0;i<Clasificacion.bracket.size();i++){
 			if(i % 2 == 1){
@@ -86,7 +95,7 @@ public class Menus {
 		}
     }
 
-
+	//Ejemplo: https://www.google.com/search?q=fase+de+grupos+champions&rlz=1C1CHBF_esES991ES991&oq=fase+de+grupos+cham&aqs=chrome.0.0i512l2j69i57j0i512l7.7211j1j7&sourceid=chrome&ie=UTF-8#sie=lg;/g/11j8x175ph;2;/m/0c1q0;st;fp;1
     public void faseGruposE(int posicionE){
 		if(Registro.clubs.get(posicionE).club.length()<=7){
 			System.out.print(Registro.clubs.get(posicionE).club +"\t\t\t");
@@ -100,7 +109,7 @@ public class Menus {
 		Registro.clubs.get(posicionE).difgoles+"\t"+Registro.clubs.get(posicionE).puntos+"\n");
     }  
 
-
+	//Ejemplo de arriba (son las estadisticas)
 	public void faseGruposT(int numGrupo){
         System.out.println("_________________");
         System.out.println("");
@@ -110,7 +119,7 @@ public class Menus {
 		System.out.println("");
     }  
 
-
+	//Ejemplo https://twitter.com/atleticokin/status/994779584058052609?lang=eu
 	public void estadisticasPartidos(int posicion){
 		System.out.println("LOCAL\t\t\tVISITANTE");
 
@@ -133,7 +142,7 @@ public class Menus {
 		System.out.println(Registro.partidos.get(posicion).golesLocal+"\t\t\t"+Registro.partidos.get(posicion).golesVisitante);
 	}
 
-
+	//Alineacion del equipo (sin mas)
 	public void alineacion(int id,int plantilla[]){
 		System.out.println("");
 		System.out.println(Registro.FichaJugadores.get(plantilla[9]).nombre+" "+Registro.FichaJugadores.get(plantilla[9]).dorsal+"\t"+Registro.FichaJugadores.get(plantilla[9]).nombre+" "+Registro.FichaJugadores.get(plantilla[9]).dorsal+"\t"+Registro.FichaJugadores.get(plantilla[10]).nombre+" "+Registro.FichaJugadores.get(plantilla[10]).dorsal);

@@ -90,16 +90,16 @@ public class Datos extends BarraMenu {
         //NOMBRE MENUS
         switch (tipoDato) {
             case "jugadores":
-                jLabel1.setText("MENÚ JUGADOR");
+                jLabel1.setText("MENU JUGADOR");
                 break;
             case "arbitros":
-                jLabel1.setText("MENÚ ÁRBITRO");
+                jLabel1.setText("MENU ARBITRO");
                 break;
             case "equipos":
-                jLabel1.setText("MENÚ EQUIPO");
+                jLabel1.setText("MENU EQUIPO");
                 break;
             case "usuarios":
-                jLabel1.setText("MENÚ USUARIO");
+                jLabel1.setText("MENU USUARIO");
                 break;
             case "clasificacion":
                 jLabel1.setText("MENÚ CLASIFICACIÓN");
@@ -257,11 +257,11 @@ public class Datos extends BarraMenu {
     }                                        
 
     private void importarActionPerformed(java.awt.event.ActionEvent evt) {     
-        setVisible(false);                                      
+       setVisible(false);                                      
         
         switch (tipoDato) {
             case "clasificacion":
-                
+                sorteo();
                 break;
         
             default:
