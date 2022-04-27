@@ -4,9 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 public class Acciones {
 
 
@@ -134,18 +131,5 @@ public class Acciones {
 
 	}
 
-	public static ResultSet getUsuario(String id){
-		Iniciar.sql = "SELECT * FROM usuario where usuario= '"+id+"'";
-		
-		try {
-			if(Iniciar.stmt.executeQuery(Iniciar.sql) != null){
-				return Iniciar.stmt.executeQuery(Iniciar.sql);
-			}else{
-				JFrame jFrame = new JFrame();
-				JOptionPane.showMessageDialog(jFrame, "El usuario no esta mal");
-			}
-			
-		} catch (SQLException e) {}
-		return null;
-	}
+	public static 
 }

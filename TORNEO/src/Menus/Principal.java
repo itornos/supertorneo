@@ -250,7 +250,9 @@ public class Principal extends javax.swing.JFrame {
     }                                        
 
     private void clasificacionActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        
+        setVisible(false);
+        Datos.tipoDato = "clasificacion";                                         
+        Datos.ejecutar();
     }                                        
 
     private javax.swing.JButton Jugadores;

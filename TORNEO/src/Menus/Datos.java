@@ -90,16 +90,19 @@ public class Datos extends BarraMenu {
         //NOMBRE MENUS
         switch (tipoDato) {
             case "jugadores":
-                jLabel1.setText("MENU JUGADOR");
+                jLabel1.setText("MENÚ JUGADOR");
                 break;
             case "arbitros":
-                jLabel1.setText("MENU ARBITRO");
+                jLabel1.setText("MENÚ ÁRBITRO");
                 break;
             case "equipos":
-                jLabel1.setText("MENU EQUIPO");
+                jLabel1.setText("MENÚ EQUIPO");
                 break;
             case "usuarios":
-                jLabel1.setText("MENU USUARIO");
+                jLabel1.setText("MENÚ USUARIO");
+                break;
+            case "clasificacion":
+                jLabel1.setText("MENÚ CLASIFICACIÓN");
                 break;
         }
         
@@ -240,6 +243,10 @@ public class Datos extends BarraMenu {
             case "usuarios":
                 
             break;
+
+            case "clasificacion":
+                PaginaWeb.abrirPagina("clasificacion.php");
+            break;
         }
     }                                        
 
@@ -251,7 +258,16 @@ public class Datos extends BarraMenu {
 
     private void importarActionPerformed(java.awt.event.ActionEvent evt) {     
         setVisible(false);                                      
-        ImportarDatos.ejecutar("jugador");
+        
+        switch (tipoDato) {
+            case "clasificacion":
+                
+                break;
+        
+            default:
+            ImportarDatos.ejecutar("jugador");
+                break;
+        }
     }                                         
                 
     private javax.swing.JButton ver;
