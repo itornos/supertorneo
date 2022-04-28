@@ -2,7 +2,7 @@ $(obtener_registros());
 
 function obtener_registros(productos) {
     $.ajax({
-            url: 'busqueda_jugador.php',
+            url: 'busqueda_equipo.php',
             type: 'POST',
             dataType: 'html',
             data: { productos: productos },

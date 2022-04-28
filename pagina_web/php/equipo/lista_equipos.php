@@ -81,38 +81,38 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         </header>
         <section class="u-align-center u-clearfix u-palette-5-light-2 u-section-1" id="carousel_f868">
             <div class="u-clearfix u-sheet u-sheet-1">
-                <h2 class="u-custom-font u-font-merriweather u-text u-text-1">LISTA DE JUGADORES</h2>
+                <h2 class="u-custom-font u-font-merriweather u-text u-text-1">LISTA DE EQUIPOS</h2>
+                <br>
                 <div class="u-expanded-width u-table u-table-responsive u-table-1">
                     <table class="u-table-entity u-table-entity-1">
                         <colgroup>
-                            <col width="4.5%">
-                            <col width="8.2%">
-                            <col width="7.3%">
-                            <col width="8.8%">
+                            <col width="25%">
                             <col width="10%">
-                            <col width="9.6%">
-                            <col width="6.3%">
-                            <col width="16.2%">
-                            <col width="5.4%">
-                            <col width="5.7%">
-                            <col width="5.7%">
-                            <col width="12.1%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
                         </colgroup>
                         <tbody class="u-align-center u-palette-5-dark-3 u-table-body u-table-body-1">
                             <tr style="height: 56px;">
                                 <td class="u-align-left u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-first-column u-table-cell u-table-cell-1">NOMBRE</td>
-                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-2">APELLIDO</td>
-                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-3">EDAD</td>
-                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-4">SEXO</td>
-                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-5">ESTADO</td>
-                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-6">AMARILLAS</td>
-                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-7">ROJAS</td>
-                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-8">CORNERS</td>
-                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-9">FALTAS</td>
+                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-2">PJ</td>
+                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-3">Ganados</td>
+                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-4">Empates</td>
+                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-5">Perdidos</td>
+                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-6">Goles</td>
+                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-7">Goles contra</td>
+                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-8">DIF</td>
+                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-9">PUNTOS</td>
+                                <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-9">GRUPO</td>
                             </tr>
                         <?php
 
-                        $sql="SELECT * FROM arbitro ORDER BY nombre DESC";
+                        $sql="SELECT * FROM equipo ORDER BY puntos DESC";
                         $result=mysqli_query($conexion,$sql);
                 
                         while($mostrar=mysqli_fetch_array($result)){
@@ -120,14 +120,15 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
                         ?>
                                 <tr style="height: 62px;">
                                     <td class="u-align-left u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-first-column u-table-cell u-table-cell-13"><?php echo $mostrar['nombre'] ?></td>
-                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-14"><?php echo $mostrar['apellido'] ?></td>
-                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-15"><?php echo $mostrar['edad'] ?></td>
-                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-16"><?php echo $mostrar['sexo'] ?></td>
-                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-17"><?php echo $mostrar['estado'] ?></td>
-                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-18"><?php echo $mostrar['tarj_am'] ?></td>
-                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-19"><?php echo $mostrar['tarj_roj'] ?></td>
-                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-20"><?php echo $mostrar['corners'] ?></td>
-                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-21"><?php echo $mostrar['faltas'] ?></td>
+                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-14"><?php echo $mostrar['partidos_jugados'] ?></td>
+                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-15"><?php echo $mostrar['ganado'] ?></td>
+                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-16"><?php echo $mostrar['empate'] ?></td>
+                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-17"><?php echo $mostrar['perdido'] ?></td>
+                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-18"><?php echo $mostrar['gol_favor'] ?></td>
+                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-19"><?php echo $mostrar['gol_contra'] ?></td>
+                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-20"><?php echo $mostrar['dif_goles'] ?></td>
+                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-21"><?php echo $mostrar['puntos'] ?></td>
+                                    <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-21"><?php echo $mostrar['grupo'] ?></td>
                                 </tr>
                         <?php
                         }

@@ -19,8 +19,8 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     <script class="u-script" type="text/javascript" src="../../js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="../../js/nicepage.js" defer=""></script>
     <script src="../../js/jquery-3.4.1.min.js"></script>
-	  <script src="../../js/bootstrap.min.js"></script>-
-	  <script src="../../js/buscar_jugador.js"></script>
+	  <script src="../../js/bootstrap.min.js"></script>
+	  <script src="../../js/buscar_equipo.js"></script>
     <meta name="generator" content="Nicepage 4.8.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto+Condensed:300,300i,400,400i,700,700i">

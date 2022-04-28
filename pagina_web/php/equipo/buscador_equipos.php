@@ -30,13 +30,6 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         position: absolute;
         margin: 2.75% 0% 0% 20%;
       }
-
-      .menusticky {
-        background-color: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
     </style>
 
     <script type="application/ld+json">{
@@ -81,7 +74,6 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           </div>
         </nav>
       </div></header>
-    <div class="menusticky">
     <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="sec-c374">
     <h1 class="u-text-default u-text-1" id="pitoh1">Buscar Equipo</h1>
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
@@ -101,18 +93,6 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
 
       </div>
     </section>
-    </div>
-
-    <?php 
-    require_once "../conexion.php";
-    
-    $sql="SELECT * FROM equipo where nombre='".$_POST['botonaso']."'";
-    $result=mysqli_query($conexion,$sql);
-
-    $mostrar=mysqli_fetch_array($result);
-    ?>
-
-
     <section class="u-align-center u-clearfix u-section-2" id="carousel_d548">
       <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
         <div class="u-container-style u-group u-shape-rectangle u-group-1">
@@ -120,62 +100,62 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
             <img src="../../images/1.png" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-image-1" data-image-width="354" data-image-height="354">
           </div>
         </div>
-        <h1 class="u-align-center u-text u-text-1"><?php echo $mostrar['nombre'] ?></h1>
+        <h1 class="u-align-center u-text u-text-1">...</h1>
         <h2 class="u-align-center u-text u-text-2">Listado de jugadores<br>
         </h2>
         <div class="u-list u-list-1">
           <div class="u-repeater u-repeater-1">
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-2"><span class="u-file-icon u-icon u-spacing-16 u-icon-1"><img src="../../images/1250694.png" alt=""></span>
-                <p class="u-text u-text-3"><?php echo $mostrar['partidos_jugados'] ?></p>
+                <p class="u-text u-text-3">...</p>
                 <h4 class="u-text u-text-4">PARTIDOS JUGADOS</h4>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-3"><span class="u-file-icon u-icon u-spacing-16 u-icon-2"><img src="../../images/748113.png" alt=""></span>
-                <p class="u-text u-text-5"><?php echo $mostrar['ganado'] ?></p>
+                <p class="u-text u-text-5">...</p>
                 <h4 class="u-text u-text-6">GANADOS</h4>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-4"><span class="u-file-icon u-icon u-spacing-16 u-icon-3"><img src="../../images/43472.png" alt=""></span>
-                <p class="u-text u-text-7"><?php echo $mostrar['empate'] ?></p>
+                <p class="u-text u-text-7">...</p>
                 <h4 class="u-text u-text-8">EMPATES</h4>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-5"><span class="u-file-icon u-icon u-spacing-16 u-icon-4"><img src="../../images/1828901.png" alt=""></span>
-                <p class="u-text u-text-9"><?php echo $mostrar['perdido'] ?></p>
+                <p class="u-text u-text-9">...</p>
                 <h4 class="u-text u-text-10">PERDIDOS</h4>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-6"><span class="u-file-icon u-icon u-spacing-16 u-icon-5"><img src="../../images/2726007.png" alt=""></span>
-                <p class="u-text u-text-11"><?php echo $mostrar['gol_favor'] ?></p>
+                <p class="u-text u-text-11">...</p>
                 <h4 class="u-text u-text-12">GOLES A FAVOR</h4>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-7"><span class="u-file-icon u-icon u-spacing-16 u-icon-6"><img src="../../images/7266255.png" alt=""></span>
-                <p class="u-text u-text-13"><?php echo $mostrar['gol_contra'] ?></p>
+                <p class="u-text u-text-13">...</p>
                 <h4 class="u-text u-text-14">GOLES EN CONTRA</h4>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-8"><span class="u-file-icon u-icon u-spacing-16 u-icon-7"><img src="../../images/5090744.png" alt=""></span>
-                <p class="u-text u-text-15"><?php echo $mostrar['dif_goles'] ?></p>
+                <p class="u-text u-text-15">...</p>
                 <h4 class="u-text u-text-16">DIF DE GOLES</h4>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-9"><span class="u-file-icon u-icon u-spacing-16 u-icon-8"><img src="../../images/419952.png" alt=""></span>
-                <p class="u-text u-text-17"><?php echo $mostrar['puntos'] ?></p>
+                <p class="u-text u-text-17">...</p>
                 <h4 class="u-text u-text-18">PUNTOS</h4>
               </div>
             </div>
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-10"><span class="u-file-icon u-icon u-spacing-16 u-icon-9"><img src="../../images/33308.png" alt=""></span>
-                <p class="u-text u-text-19"><?php echo $mostrar['grupo'] ?></p>
+                <p class="u-text u-text-19">...</p>
                 <h4 class="u-text u-text-20">GRUPO&nbsp;</h4>
               </div>
             </div>
@@ -195,32 +175,15 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
                 <th class="u-border-1 u-border-grey-50 u-table-cell">Apellido</th>
                 <th class="u-border-1 u-border-grey-50 u-table-cell">Posicion</th>
                 <th class="u-border-1 u-border-grey-50 u-table-cell">Dorsal</th>
-                <th class="u-border-1 u-border-grey-50 u-table-cell">Ver</th>
               </tr>
             </thead>
             <tbody class="u-table-body">
-              <?php
-              $sql="SELECT * FROM jugador where equipo='".$_POST['botonaso']."'";
-              $result=mysqli_query($conexion,$sql);
-                
-              while($mostrar=mysqli_fetch_array($result)){
-              ?>
               <tr style="height: 36px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell"><?php echo $mostrar['nombre'] ?></td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell"><?php echo $mostrar['apellido'] ?></td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell"><?php echo $mostrar['posicion'] ?></td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell"><?php echo $mostrar['dorsal'] ?></td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
-                  <form action="../jugador/datos_jugador.php" method="POST" class="u-clearfix u-form-spacing-10  u-inner-form" name="form-3">
-                  <div class="u-form-group u-form-name u-label-none\">
-                  <button name="botonaso" type="submit" value="<?php echo $mostrar['ID_Jugador'] ?>">ver</button>
-                  </div>
-                  </form>
-                </td>
+                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">...</td>
+                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">...</td>
+                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">...</td>
+                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">...</td>
               </tr>
-              <?php 
-              }
-              ?>
             </tbody>
           </table>
         </div>

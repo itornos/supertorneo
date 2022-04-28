@@ -81,22 +81,20 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         </header>
         <section class="u-align-center u-clearfix u-palette-5-light-2 u-section-1" id="carousel_f868">
             <div class="u-clearfix u-sheet u-sheet-1">
-                <h2 class="u-custom-font u-font-merriweather u-text u-text-1">LISTA DE JUGADORES</h2>
+                <h2 class="u-custom-font u-font-merriweather u-text u-text-1">LISTA DE ARBITROS</h2>
+                <br>
                 <div class="u-expanded-width u-table u-table-responsive u-table-1">
                     <table class="u-table-entity u-table-entity-1">
                         <colgroup>
-                            <col width="4.5%">
-                            <col width="8.2%">
-                            <col width="7.3%">
-                            <col width="8.8%">
+                            <col width="15%">
                             <col width="10%">
-                            <col width="9.6%">
-                            <col width="6.3%">
-                            <col width="16.2%">
-                            <col width="5.4%">
-                            <col width="5.7%">
-                            <col width="5.7%">
-                            <col width="12.1%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
                         </colgroup>
                         <tbody class="u-align-center u-palette-5-dark-3 u-table-body u-table-body-1">
                             <tr style="height: 56px;">
