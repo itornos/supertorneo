@@ -89,6 +89,7 @@ public class Iniciar {
 				+ " `dif_goles` int(20) NOT NULL DEFAULT 0,"
 				+ " `puntos` int(20) NOT NULL DEFAULT 0,"
 				+ " `grupo` VARCHAR(1) NOT NULL DEFAULT 'Z',"
+				+ " `foto` VARCHAR(200),"
 				+ " PRIMARY KEY (`nombre`));"
 			;
 
@@ -118,6 +119,7 @@ public class Iniciar {
 				+ " `Partidos_jugados` INT NOT NULL DEFAULT 0,"
 				+ " `Goles` INT NOT NULL DEFAULT 0,"
 				+ " `salario` INT NOT NULL ,"
+				+ " `foto` VARCHAR(200),"
 				+ " PRIMARY KEY (`ID_jugador`),"
 				+ " CONSTRAINT pk_equipo FOREIGN KEY (`equipo`) REFERENCES `torneo`.`equipo`(`nombre`))"
 			;
