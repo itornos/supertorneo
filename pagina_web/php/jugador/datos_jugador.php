@@ -19,13 +19,11 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     <script class="u-script" type="text/javascript" src="../../js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="../../js/nicepage.js" defer=""></script>
     <script src="../../js/jquery-3.4.1.min.js"></script>
-	  <script src="../../js/bootstrap.min.js"></script>-
+	  <script src="../../js/bootstrap.min.js"></script>
 	  <script src="../../js/buscar_jugador.js"></script>
     <meta name="generator" content="Nicepage 4.8.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto+Condensed:300,300i,400,400i,700,700i">
-    
-    
     
     
     <script type="application/ld+json">{
@@ -77,8 +75,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           <form action="buscador_jugadores.php" method="POST" class="u-clearfix u-form-spacing-10  u-inner-form" style="padding: 10px;" source="email" name="form-3">
             <div class="u-form-group u-form-name u-label-none">
               <label for="name-5485" class="u-label">Nombre</label>
-              <input class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
-            
+              <input style="outline: none;" class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
             <section class="content-area">
               <div class="table-area" id="tabla_resultados">
               </div>

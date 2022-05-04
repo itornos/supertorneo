@@ -20,7 +20,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     <script class="u-script" type="text/javascript" src="../../js/nicepage.js" defer=""></script>
     <script src="../../js/jquery-3.4.1.min.js"></script>
 	  <script src="../../js/bootstrap.min.js"></script>
-	  <script src="../../js/buscar_equipo.js"></script>
+	  <script src="../../js/buscar_jugador.js"></script>
     <meta name="generator" content="Nicepage 4.8.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto+Condensed:300,300i,400,400i,700,700i">
@@ -75,8 +75,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           <form action="buscador_jugadores.php" method="POST" class="u-clearfix u-form-spacing-10  u-inner-form" style="padding: 10px;" source="email" name="form-3">
             <div class="u-form-group u-form-name u-label-none">
               <label for="name-5485" class="u-label">Nombre</label>
-              <input class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
-            
+              <input style="outline: none;" class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
             <section class="content-area">
               <div class="table-area" id="tabla_resultados">
               </div>
@@ -85,107 +84,6 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           </form>
         </div>
       </div>
-    </section>
-
-    <section class="u-clearfix u-grey-10 u-section-2" id="sec-dedf">
-      <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
-        <div class="u-layout" style="">
-          <div class="u-layout-row" style="">
-            <div class="u-align-center u-container-style u-image u-layout-cell u-right-cell u-size-33 u-size-xs-60 u-image-1" src="" data-image-width="900" data-image-height="600">
-              <div class="u-container-layout u-valign-bottom u-container-layout-1" src=""></div>
-            </div>
-            <div class="u-align-center u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-27 u-size-xs-60 u-white u-layout-cell-2" src="">
-              <div class="u-container-layout u-container-layout-2">
-                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-1" id="id_nombre"></h1>
-                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-2" id="id_apellido"></h1>
-                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-3">EQUIPO</h1>
-                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-4" id="id_equipo"></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-align-left-xs u-clearfix u-section-3" id="sec-1960">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-text u-text-default u-text-palette-1-base u-text-1"> DATOS DEL JUGADOR</h2>
-        <div class="u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-1"><span class="u-file-icon u-icon u-spacing-18 u-text-black u-icon-1"><img src="../../images/15.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-2"> POSICOIN</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-black u-text-3" id="posicion"></h5>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-2"><span class="u-file-icon u-icon u-spacing-18 u-icon-2"><img src="../../images/26397.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-4"> DORSAL</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-black u-text-5" id="dorsal"> ~<?php echo $valor_final['dorsal'];?></h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-list u-list-2">
-          <div class="u-repeater u-repeater-2">
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-3"><span class="u-file-icon u-icon u-spacing-18 u-icon-3"><img src="../../images/3858983.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-6"> PARTIDOS JUGADOS</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-7"> ~<?php echo $valor_final['Partidos_jugados'];?></h5>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-4"><span class="u-file-icon u-icon u-spacing-18 u-icon-4"><img src="../../images/33736.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-8"> GOLES</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-9"> ~<?php echo $valor_final['Goles'];?></h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-list u-list-3">
-          <div class="u-repeater u-repeater-3">
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-5"><span class="u-file-icon u-icon u-spacing-18 u-text-black u-icon-5"><img src="../../images/15.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-10"> EDAD</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-11"> ~<?php echo $valor_final['edad'];?></h5>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-6"><span class="u-file-icon u-icon u-spacing-18 u-icon-6"><img src="../../images/505972.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-12"> SEXO</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-13"> ~<?php echo $valor_final['sexo'];?></h5>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-7"><span class="u-file-icon u-icon u-spacing-18 u-icon-7"><img src="../../images/2164609.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-14"> NACIONALIDAD</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-15"> ~<?php echo $valor_final['nacionalidad'];?></h5>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-8"><span class="u-file-icon u-icon u-spacing-18 u-icon-8"><img src="../../images/68858.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-16"> ESTADO</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-17"> ~<?php echo $valor_final['estado'];?></h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-e88d"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Texto de ejemplo&nbsp; xd lol<br>
-        </p>
-      </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="html-templates" target="_blank">
-        <span>HTML Template</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="html-website-builder" target="_blank">
-        <span>HTML Website Builder</span>
-      </a>
     </section>
   </body>
 </html>
