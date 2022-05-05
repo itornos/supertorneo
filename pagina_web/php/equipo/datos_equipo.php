@@ -112,15 +112,14 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     $mostrar=mysqli_fetch_array($result);
     ?>
 
-
     <section class="u-align-center u-clearfix u-section-2" id="carousel_d548">
       <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
         <div class="u-container-style u-group u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
-            <img src="../../images/1.png" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-image-1" data-image-width="354" data-image-height="354">
+            <img src="../../imagenes_equipos_jugadores/<?php echo $mostrar['nombre'] ?>.png" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-image-1" data-image-width="354" data-image-height="354">
           </div>
         </div>
-        <h1 class="u-align-center u-text u-text-1"><?php echo $mostrar['nombre'] ?></h1>
+        <h1 class="u-align-center u-text u-text-1"><?php echo strtoupper($mostrar['nombre']) ?></h1>
         <h2 class="u-align-center u-text u-text-2">Listado de jugadores<br>
         </h2>
         <div class="u-list u-list-1">

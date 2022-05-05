@@ -37,7 +37,7 @@ if($consultaBD->num_rows>=1){
 		echo 
 		"<tr>
 			<td>"
-			.$fila['nombre'].
+			.strtoupper($fila['nombre']).
 			"</td>
 			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			<td>

@@ -119,7 +119,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
                 
                         ?>
                                 <tr style="height: 62px;">
-                                    <td class="u-align-left u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-first-column u-table-cell u-table-cell-13"><?php echo $mostrar['nombre'] ?></td>
+                                    <td class="u-align-left u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-first-column u-table-cell u-table-cell-13"><?php echo strtoupper($mostrar['nombre']) ?></td>
                                     <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-14"><?php echo $mostrar['partidos_jugados'] ?></td>
                                     <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-15"><?php echo $mostrar['ganado'] ?></td>
                                     <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-table-cell u-table-cell-16"><?php echo $mostrar['empate'] ?></td>
