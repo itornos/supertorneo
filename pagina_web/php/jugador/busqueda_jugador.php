@@ -54,10 +54,12 @@ if($consultaBD->num_rows>=1){
 		</tr>
 		</thead><br>
 		<tbody>
+
 	<?php 
 	while($fila=mysqli_fetch_array($consultaBD)){
 		$cont++;
 	?>
+
 		<tr id="asd">
 			<td><?php echo $fila['nombre'] ?></td>
 			<td><?php echo $fila['apellido'] ?></td>
@@ -76,9 +78,13 @@ if($consultaBD->num_rows>=1){
 			break;
 		}
 	}
-	echo "</tbody>
-	</table>";
-}else{
-	echo "<center><h4>No hemos encotrado ningun registro con la palabra "."<strong class='text-uppercase'>".$termino."</strong><h4><center>";
+	?>
+
+	</tbody>
+	</table>
+
+	<?php 
+}else if (strlen ($termino) != 0) {
+	?><center><h4>No hemos encotrado ningun registro con la palabra <strong class='text-uppercase'><?php echo $termino ?></strong><h4><center><?php
 }
 ?>

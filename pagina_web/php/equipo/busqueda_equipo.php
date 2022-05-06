@@ -13,45 +13,70 @@ if(isset($_POST['productos']))
 }
 $consultaBD=$mysqli->query($consulta);
 if($consultaBD->num_rows>=1){
-	echo "
+	?>
 	<style> 
-		table{
-			border-collapse:collapse;
+		#tablabuscador{
+			position: absolute;
+			z-index: 10;
+			backdrop-filter: blur(20px);
 		}
-		tr:hover {
-		background-color: #339FFF;
-		border: solid #339FFF;
-	}
+		#tablabuscador td,th{
+			text-align: center;
+			padding-left:15mm;
+		}
+		#lupa{
+			background: url(../../images/lupa.png) no-repeat center;
+			background-size: 30px 30px;
+			width: 30px;
+			height: 30px;
+			border: 0px;
+			-webkit-transition:all .4s ease; /* Safari y Chrome */
+			-moz-transition:all .4s ease; /* Firefox */
+			-o-transition:all .4s ease; /* IE 9 */
+			-ms-transition:all .4s ease; /* Opera */
+		}
+		#lupa:hover {
+			-webkit-transform:scale(1.2);
+			-moz-transform:scale(1.2);
+			-ms-transform:scale(1.2);
+			-o-transform:scale(1.2);
+			transform:scale(1.2);
+		}
 	</style>
-	<table style .pito tr:hover {
-		background-color: #ffff99;
-	}class='responsive-table table table-hover table-bordered pito'>
-	<thead>
-	<tr>
-	<th class='bg-info' scope='col'>NOMBRE</th>
-	<th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
-	</tr>
-	</thead><br>
-	<tbody>";
+	<table id="tablabuscador">
+		<thead>
+		<tr>
+			<th class='bg-info' scope='col'>NOMBRE</th>
+		</tr>
+		</thead><br>
+		<tbody>
+
+	<?php 
 	while($fila=mysqli_fetch_array($consultaBD)){
-		echo 
-		"<tr>
-			<td>"
-			.strtoupper($fila['nombre']).
-			"</td>
-			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td>
-			<form action=\"datos_equipo.php\" method=\"POST\" class=\"u-clearfix u-form-spacing-10  u-inner-form\" style=\"padding: 10px;\" name=\"form-3\">
-				<div class=\"u-form-group u-form-name u-label-none\">
-				<button style=\"background-color: width:50px;\" name=\"botonaso\" type=\"submit\" value=\"".$fila['nombre']."\">Ver Equipo</button>
+		$cont++;
+	?>
+
+		<tr id="asd">
+			<td><?php echo strtoupper($fila['nombre']) ?></td>
+			<td id="tdlupa">
+			<form action="datos_equipo.php" method="POST" class="u-clearfix u-form-spacing-10  u-inner-form" style="padding: 10px;" name="form-3">
+				<div class="u-form-group u-form-name u-label-none">
+				<button id="lupa" name="botonaso" type="submit" value="<?php echo $fila['nombre'] ?>"></button>
 				</div>
 			</form>
 			</td>
-		</tr>";
+		</tr>
+	<?php
+		if ($cont==5) {
+			break;
+		}
 	}
-	echo "</tbody>
-	</table>";
-}else{
-	echo "<center><h4>No hemos encotrado ningun registro con la palabra "."<strong class='text-uppercase'>".$termino."</strong><h4><center>";
+	?>
+	</tbody>
+	</table>
+
+	<?php 
+}else if (strlen ($termino) != 0) {
+	?><center><h4>No hemos encotrado ningun registro con la palabra <strong class='text-uppercase'><?php echo $termino ?></strong><h4><center><?php
 }
 ?>

@@ -24,14 +24,14 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     <meta name="generator" content="Nicepage 4.8.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto+Condensed:300,300i,400,400i,700,700i">
-    
+  
     <style>
       #pitoh1{
         position: absolute;
         margin: 2.75% 0% 0% 20%;
       }
     </style>
-
+    
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -81,8 +81,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           <form action="buscador_equipos.php" method="POST" class="u-clearfix u-form-spacing-10  u-inner-form" style="padding: 10px;" source="email" name="form-3">
             <div class="u-form-group u-form-name u-label-none">
               <label for="name-5485" class="u-label">Nombre</label>
-              <input class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
-            
+              <input style="outline: none;" autocomplete="off" class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
             <section class="content-area">
               <div class="table-area" id="tabla_resultados">
               </div>
@@ -90,121 +89,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
             </div>
           </form>
         </div>
-
       </div>
-    </section>
-    <section class="u-align-center u-clearfix u-section-2" id="carousel_d548">
-      <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
-        <div class="u-container-style u-group u-shape-rectangle u-group-1">
-          <div class="u-container-layout u-container-layout-1">
-            <img src="../../images/1.png" alt="" class="u-expanded-width u-image u-image-contain u-image-default u-image-1" data-image-width="354" data-image-height="354">
-          </div>
-        </div>
-        <h1 class="u-align-center u-text u-text-1">...</h1>
-        <h2 class="u-align-center u-text u-text-2">Listado de jugadores<br>
-        </h2>
-        <div class="u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-2"><span class="u-file-icon u-icon u-spacing-16 u-icon-1"><img src="../../images/1250694.png" alt=""></span>
-                <p class="u-text u-text-3">...</p>
-                <h4 class="u-text u-text-4">PARTIDOS JUGADOS</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-3"><span class="u-file-icon u-icon u-spacing-16 u-icon-2"><img src="../../images/748113.png" alt=""></span>
-                <p class="u-text u-text-5">...</p>
-                <h4 class="u-text u-text-6">GANADOS</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-4"><span class="u-file-icon u-icon u-spacing-16 u-icon-3"><img src="../../images/43472.png" alt=""></span>
-                <p class="u-text u-text-7">...</p>
-                <h4 class="u-text u-text-8">EMPATES</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-5"><span class="u-file-icon u-icon u-spacing-16 u-icon-4"><img src="../../images/1828901.png" alt=""></span>
-                <p class="u-text u-text-9">...</p>
-                <h4 class="u-text u-text-10">PERDIDOS</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-6"><span class="u-file-icon u-icon u-spacing-16 u-icon-5"><img src="../../images/2726007.png" alt=""></span>
-                <p class="u-text u-text-11">...</p>
-                <h4 class="u-text u-text-12">GOLES A FAVOR</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-7"><span class="u-file-icon u-icon u-spacing-16 u-icon-6"><img src="../../images/7266255.png" alt=""></span>
-                <p class="u-text u-text-13">...</p>
-                <h4 class="u-text u-text-14">GOLES EN CONTRA</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-8"><span class="u-file-icon u-icon u-spacing-16 u-icon-7"><img src="../../images/5090744.png" alt=""></span>
-                <p class="u-text u-text-15">...</p>
-                <h4 class="u-text u-text-16">DIF DE GOLES</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-9"><span class="u-file-icon u-icon u-spacing-16 u-icon-8"><img src="../../images/419952.png" alt=""></span>
-                <p class="u-text u-text-17">...</p>
-                <h4 class="u-text u-text-18">PUNTOS</h4>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-10"><span class="u-file-icon u-icon u-spacing-16 u-icon-9"><img src="../../images/33308.png" alt=""></span>
-                <p class="u-text u-text-19">...</p>
-                <h4 class="u-text u-text-20">GRUPO&nbsp;</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-table u-table-responsive u-table-1">
-          <table class="u-table-entity">
-            <colgroup>
-              <col width="33%">
-              <col width="37.7%">
-              <col width="17.2%">
-              <col width="12.1%">
-            </colgroup>
-            <thead class="u-grey-50 u-table-header u-table-header-1">
-              <tr style="height: 52px;">
-                <th class="u-border-1 u-border-grey-50 u-table-cell">Nombre</th>
-                <th class="u-border-1 u-border-grey-50 u-table-cell">Apellido</th>
-                <th class="u-border-1 u-border-grey-50 u-table-cell">Posicion</th>
-                <th class="u-border-1 u-border-grey-50 u-table-cell">Dorsal</th>
-              </tr>
-            </thead>
-            <tbody class="u-table-body">
-              <tr style="height: 36px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">...</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">...</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">...</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-    
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-e88d"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Texto de ejemplo&nbsp; xd lol<br>
-        </p>
-      </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="html-templates" target="_blank">
-        <span>HTML Template</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="html-website-builder" target="_blank">
-        <span>HTML Website Builder</span>
-      </a>. 
     </section>
   </body>
 </html>
