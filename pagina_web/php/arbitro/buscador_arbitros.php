@@ -69,7 +69,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           <form action="buscador_arbitros.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px;" source="email" name="form-3">
           <div class="u-form-group u-form-name u-label-none">
               <label for="name-5485" class="u-label">Nombre</label>
-              <input class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
+              <input autocomplete="off" style="outline: none;" class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
             
             <section class="content-area">
               <div class="table-area" id="tabla_resultados">
@@ -79,98 +79,6 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           </form>
         </div>
       </div>
-    </section>
-    
-    <section class="u-clearfix u-grey-10 u-section-2" id="sec-dedf">
-      <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
-        <div class="u-layout" style="">
-          <div class="u-layout-row" style="">
-            <div class="u-align-center u-container-style u-image u-layout-cell u-right-cell u-size-33 u-size-xs-60 u-image-1" src="" data-image-width="900" data-image-height="600">
-              <div class="u-container-layout u-valign-bottom u-container-layout-1" src=""></div>
-            </div>
-            <div class="u-align-center u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-27 u-size-xs-60 u-white u-layout-cell-2" src="">
-              <div class="u-container-layout u-container-layout-2">
-                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-1">NOMBRE</h1>
-                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-2">APELLI​DO</h1>
-                <h1 class="u-custom-font u-font-montserrat u-text u-text-palette-1-base u-text-3">EDAD<br>
-                </h1>
-                <h1 class="u-custom-font u-font-montserrat u-text u-text-4">~</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-align-left-xs u-clearfix u-section-3" id="sec-1960">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-text u-text-default u-text-palette-1-base u-text-1"> DATOS DEL ARBITRO</h2>
-        <div class="u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-1">
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-2"> ESTADO</h5><span class="u-file-icon u-icon u-spacing-18 u-icon-1"><img src="../../images/68858.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-3"> ~</h5>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-2">
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-4"> SEXO</h5><span class="u-file-icon u-icon u-spacing-18 u-icon-2"><img src="../../images/505972.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-5"> ~</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-list u-list-2">
-          <div class="u-repeater u-repeater-2">
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-3"><span class="u-file-icon u-icon u-spacing-18 u-icon-3"><img src="../../images/7153240.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-6"> TARJETAS AMARILLAS</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-7"> ~</h5>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-4"><span class="u-file-icon u-icon u-spacing-18 u-icon-4"><img src="../../images/451718.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-8">TARJETAS ROJAS</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-9"> ~</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-list u-list-3">
-          <div class="u-repeater u-repeater-3">
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-5"><span class="u-file-icon u-icon u-spacing-18 u-icon-5"><img src="../../images/182608.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-10">FALTAS PITADAS</h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-black u-text-11"> ~</h5>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item">
-              <div class="u-container-layout u-similar-container u-container-layout-6"><span class="u-file-icon u-icon u-spacing-18 u-icon-6"><img src="../../images/451743.png" alt=""></span>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-palette-1-base u-text-12">CORNERS PITADOS<br>
-                </h5>
-                <h5 class="u-custom-font u-font-roboto-condensed u-text u-text-black u-text-13"> ~</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-e88d"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Texto de ejemplo&nbsp; xd lol<br>
-        </p>
-      </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="html-templates" target="_blank">
-        <span>HTML Template</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="html-website-builder" target="_blank">
-        <span>HTML Website Builder</span>
-      </a>. 
     </section>
   </body>
 </html>

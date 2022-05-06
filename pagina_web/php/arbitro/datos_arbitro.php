@@ -76,7 +76,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           <form action="buscador_arbitros.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px;" source="email" name="form-3">
           <div class="u-form-group u-form-name u-label-none">
               <label for="name-5485" class="u-label">Nombre</label>
-              <input class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
+              <input autocomplete="off" style="outline: none;" class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" type="text" name="termino" id="termino">
             
             <section class="content-area">
               <div class="table-area" id="tabla_resultados">
