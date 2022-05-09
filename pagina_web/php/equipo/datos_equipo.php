@@ -37,6 +37,10 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         top: 0;
         z-index: 100;
       }
+      #ads {
+        margin-top: -30px;
+        margin-bottom: 10px;
+      }
     </style>
 
     <script type="application/ld+json">{
@@ -84,7 +88,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     <div class="menusticky">
     <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="sec-c374">
     <h1 class="u-text-default u-text-1" id="pitoh1">Buscar Equipo</h1>
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1" id="ads">
       <div class="u-form u-form-1">
           <form action="buscador_equipos.php" method="POST" class="u-clearfix u-form-spacing-10  u-inner-form" style="padding: 10px;" source="email" name="form-3">
             <div class="u-form-group u-form-name u-label-none">

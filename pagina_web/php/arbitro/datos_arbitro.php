@@ -26,7 +26,20 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto+Condensed:300,300i,400,400i,700,700i">
     
-    
+    <style>
+
+    .menusticky {
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    #ads {
+      margin-top: -20px;
+      margin-bottom: -40px;
+    }
+    </style>
+
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -69,8 +82,9 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           </div>
         </nav>
       </div></header>
+    <div class="menusticky">  
     <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="sec-c374">
-      <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-clearfix u-sheet u-sheet-1" id="ads">
         <h1 class="u-text u-text-default u-text-1">Buscar Arbitro</h1>
         <div class="u-form u-form-1">
           <form action="buscador_arbitros.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px;" source="email" name="form-3">
@@ -87,6 +101,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         </div>
       </div>
     </section>
+</div>
 
     
     <?php 

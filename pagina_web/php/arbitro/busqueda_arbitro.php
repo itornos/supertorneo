@@ -68,7 +68,7 @@ if($consultaBD->num_rows>=1){
 			</td>
 		</tr>
 		<?php
-		if ($cont==9) {
+		if ($cont==6) {
 			break;
 		}
 	}
