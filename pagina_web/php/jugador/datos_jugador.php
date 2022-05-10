@@ -35,7 +35,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
       }
       #ads {
         margin-top: -20px;
-        margin-bottom: -40px;
+        margin-bottom: -50px;
       }
     </style>
     
