@@ -8,16 +8,16 @@
             border-spacing: 0px 10%;
             width: 100%;
             height: 100%;
+            max-height: 500px;
         }
         td{
             padding: 0.8% 0;
             padding-left: 12px;
             vertical-align: middle;
-            max-height: 50px;
+            height: 60px;
         }
         .llena{
-            max-height: 50px;
-            padding-left: 60px;
+            padding-left: 15px;
             background-image: url("bracket.png");
             background-repeat: no-repeat;
             background-size: 100% 102%;
@@ -25,8 +25,13 @@
             font-size: 40px;
         }
         #foto{
+            padding-left: 22%;
             height: 40px;
             width: 40px;
+        }
+        #asd{
+            float: right;
+            padding-right: 13%;
         }
         
     </style>
@@ -82,7 +87,7 @@
                 if ($pos==$j || $tabla-$pos==$j) {
                     $mostrar=mysqli_fetch_array($result);
                     ?>
-                    <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar['nombre'] ?>.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  2 </td>
+                    <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar['nombre'] ?>.png"><div id="asd">2</div> </td>
                     <?php
                     $lleno = true; 
                 }
