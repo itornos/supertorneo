@@ -18,7 +18,7 @@
         }
         .llena{
             padding-left: 60px;
-            background-image: url("iuyg.png");
+            background-image: url("bracket.png");
             background-repeat: no-repeat;
             background-size: 100% 102%;
             font-family: sans-serif;
