@@ -8,15 +8,15 @@
             border-spacing: 0px 10%;
             width: 100%;
             height: 100%;
-            max-width: 100%;
-            max-height: 100%;
         }
         td{
             padding: 0.8% 0;
             padding-left: 12px;
             vertical-align: middle;
+            max-height: 50px;
         }
         .llena{
+            max-height: 50px;
             padding-left: 60px;
             background-image: url("bracket.png");
             background-repeat: no-repeat;
@@ -34,12 +34,21 @@
 <body>
     <table>
     <?php
-        error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING); 
-        $equipos = array("Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616");
+        error_reporting(E_ALL ^ E_NOTICE);
+        $equipos = array("Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616","Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616","Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616","Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616");
         $posicion = array();
         $tamaño = sizeof($equipos);
         $primera = true;
         $pos = 0;
+        $cont=0;
+
+        while ($tamaño%2==0) {
+            $tamaño = $tamaño/2;
+            $cont++;
+        }
+        
+        $tamaño = sizeof($equipos);
+        $tabla = ($cont*sizeof($equipos))*2;
 
             //PRIMERA ELIMINATORIA
         for ($i = 1; $i <= $tamaño ; $i++) {
@@ -49,7 +58,7 @@
         }
 
             //EL RESTO ELIMINATORIAS
-        for ($i = $tamaño+1; $i <= $tamaño*($tamaño/2)/2 ; $i++) {
+        for ($i = $tamaño+1; $i <= $tabla/2 ; $i++) {
             if (((($posicion[$pos]+$posicion[$pos+1])/2)+$tamaño)==$i) {
                     $pos += 2;
                     array_push($posicion, $i);
@@ -58,7 +67,6 @@
 
         $pos = 0;
         $lleno = false;
-        $espejo = $tamaño*$tamaño/2;
     
         $conexion=mysqli_connect('localhost','root','','torneo');
 
@@ -69,24 +77,23 @@
             ?>
             <tr>
             <?php
-            for ($j=$i; $j <= $tamaño*$tamaño/2-($tamaño-$i); $j+=$tamaño) { 
-                foreach ($posicion as &$pos) {
-                    if ($pos==$j || $espejo-$pos==$j) {
-                        $mostrar=mysqli_fetch_array($result);
-                        ?>
-                        <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar['nombre'] ?>.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  2 </td>
-                        <?php
-                        $lleno = true; 
-                    }
-                }
-                if (!$lleno) {
+            for ($j=$i; $j <= $tabla-($tamaño-$i); $j+=$tamaño) { 
+            foreach ($posicion as &$pos) {
+                if ($pos==$j || $tabla-$pos==$j) {
+                    $mostrar=mysqli_fetch_array($result);
                     ?>
-                    <td class="vacio"></td>
+                    <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar['nombre'] ?>.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  2 </td>
                     <?php
-                }else{
-                    $lleno = false;
+                    $lleno = true; 
                 }
             }
+            if (!$lleno) {
+            ?>
+                <td class="vacio"><?php echo $j ?></td>
+            <?php
+            }else{
+                $lleno = false;
+            }}
             ?>
             </tr>
             <?php
