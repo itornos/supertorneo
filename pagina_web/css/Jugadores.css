@@ -546,3 +546,186 @@
  .u-section-1-equipo .u-btn-2 {
      border-style: solid !important;
  }
+ 
+ .u-section-1-torneo {
+     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/torneo.jpg");
+     background-position: 50% 50%;
+     min-height: 731px;
+ }
+ 
+ .u-section-1-torneo .u-group-1 {
+     width: calc(((100% - 1140px) / 2) + 599px);
+     min-height: 500px;
+     margin: 231px 0 0 auto;
+ }
+ 
+ .u-section-1-torneo .u-container-layout-1 {
+     padding: 30px 0 30px 30px;
+ }
+ 
+ .u-section-1-torneo .u-text-1 {
+     font-size: 4.0625rem;
+     font-weight: 900;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     background-image: none;
+     margin: 0;
+ }
+ 
+ .u-section-1-torneo .u-btn-1 {
+     border-style: solid;
+     font-size: 0.9375rem;
+     transition-duration: 0.5s;
+     letter-spacing: normal;
+     box-shadow: 0 0 8px 0 rgba(128, 128, 128, 1);
+     text-transform: uppercase;
+     font-weight: 700;
+     background-image: none;
+     margin: 81px auto 0 0;
+     padding: 16px 52px 17px 51px;
+ }
+ 
+ .u-section-1-torneo .u-btn-2 {
+     border-style: solid;
+     font-size: 0.9375rem;
+     transition-duration: 0.5s;
+     letter-spacing: normal;
+     box-shadow: 0 0 8px 0 rgba(128, 128, 128, 1);
+     text-transform: uppercase;
+     font-weight: 700;
+     background-image: none;
+     margin: 81px auto 0 0;
+     padding: 16px 52px 17px 51px;
+ }
+ 
+ @media (max-width: 1199px) {
+     .u-section-1-torneo {
+         min-height: 603px;
+     }
+     .u-section-1-torneo .u-group-1 {
+         width: calc(((100% - 1140px) / 2) + 576px);
+         margin-top: 180px;
+         margin-bottom: 60px;
+     }
+     .u-section-1-torneo .u-text-1 {
+         font-size: 3.4375rem;
+     }
+ }
+ 
+ @media (max-width: 991px) {
+     .u-section-1-torneo {
+         min-height: 462px;
+     }
+     .u-section-1-torneo .u-group-1 {
+         width: calc(((100% - 1140px) / 2) + 610px);
+         margin-top: 60px;
+     }
+     .u-section-1-torneo .u-text-1 {
+         font-size: 3rem;
+     }
+ }
+ 
+ @media (max-width: 767px) {
+     .u-section-1-torneo {
+         background-position: 28.25% 100%;
+         min-height: 347px;
+     }
+     .u-section-1-torneo .u-group-1 {
+         width: 331px;
+         margin-right: calc(((100% - 1140px) / 2) + 300px);
+     }
+     .u-section-1-torneo .u-container-layout-1 {
+         padding-left: 10px;
+     }
+     .u-section-1-torneo .u-text-1 {
+         font-size: 3.125rem;
+     }
+ }
+ 
+ @media (max-width: 575px) {
+     .u-section-1-torneo {
+         background-position: 32.41% 100%;
+         min-height: 218px;
+     }
+     .u-section-1-torneo .u-group-1 {
+         width: 220px;
+         margin-top: 0;
+         margin-right: calc(((100% - 1140px) / 2) + 400px);
+     }
+     .u-section-1-torneo .u-container-layout-1 {
+         padding-top: 40px;
+     }
+     .u-section-1-torneo .u-text-1 {
+         font-size: 1.875rem;
+     }
+ }
+ 
+ .u-section-1-torneo .u-btn-1,
+ .u-section-1-torneo .u-btn-1:before {
+     transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+ }
+ 
+ .u-section-1-torneo .u-btn-1.u-btn-1.u-btn-1:hover:before {
+     background-color: transparent !important;
+ }
+ 
+ .u-section-1-torneo .u-btn-1.u-btn-1.u-btn-1:hover {
+     border-style: solid !important;
+     border-top-width: 2px !important;
+     border-left-width: 2px !important;
+     border-right-width: 2px !important;
+     border-bottom-width: 2px !important;
+     border-color: #404040 !important;
+ }
+ 
+ .u-section-1-torneo .u-btn-1 {
+     border-style: solid !important;
+ }
+ 
+ .u-section-1-torneo .u-btn-1.u-btn-1.u-btn-1.hover {
+     border-style: solid !important;
+     border-top-width: 2px !important;
+     border-left-width: 2px !important;
+     border-right-width: 2px !important;
+     border-bottom-width: 2px !important;
+     border-color: #404040 !important;
+ }
+ 
+ .u-section-1-torneo .u-btn-1 {
+     border-style: solid !important;
+ }
+ 
+ .u-section-1-torneo .u-btn-2,
+ .u-section-1-torneo .u-btn-2:before {
+     transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+ }
+ 
+ .u-section-1-torneo .u-btn-2.u-btn-2.u-btn-2:hover:before {
+     background-color: transparent !important;
+ }
+ 
+ .u-section-1-torneo .u-btn-2.u-btn-2.u-btn-2:hover {
+     border-style: solid !important;
+     border-top-width: 2px !important;
+     border-left-width: 2px !important;
+     border-right-width: 2px !important;
+     border-bottom-width: 2px !important;
+     border-color: #404040 !important;
+ }
+ 
+ .u-section-1-torneo .u-btn-2 {
+     border-style: solid !important;
+ }
+ 
+ .u-section-1-torneo .u-btn-2.u-btn-2.u-btn-2.hover {
+     border-style: solid !important;
+     border-top-width: 2px !important;
+     border-left-width: 2px !important;
+     border-right-width: 2px !important;
+     border-bottom-width: 2px !important;
+     border-color: #404040 !important;
+ }
+ 
+ .u-section-1-torneo .u-btn-2 {
+     border-style: solid !important;
+ }
