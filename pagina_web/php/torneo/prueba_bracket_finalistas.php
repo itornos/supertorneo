@@ -40,7 +40,7 @@
     <table>
     <?php
         error_reporting(E_ALL ^ E_NOTICE);
-        $equipos = array("Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616","Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616","Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616","Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616");
+        $equipos = array("Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616");
         $posicion = array();
         $tamaño = sizeof($equipos);
         $primera = true;
@@ -90,11 +90,12 @@
                     <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar['nombre'] ?>.png"><div id="asd">2</div> </td>
                     <?php
                     $lleno = true; 
+                    break;
                 }
             }
             if (!$lleno) {
             ?>
-                <td class="vacio"><?php echo $j ?></td>
+                <td class="vacio"></td>
             <?php
             }else{
                 $lleno = false;
