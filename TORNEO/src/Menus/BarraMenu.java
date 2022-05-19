@@ -85,7 +85,8 @@ public class BarraMenu extends javax.swing.JFrame{
     
         private void clasificacionActionPerformed(java.awt.event.ActionEvent evt) {                                         
             setVisible(false);
-            Clasificacion.ejecutar();
+            Datos.tipoDato = "clasificacion";  
+            Datos.ejecutar();
         }                                          
     
         private void equiposActionPerformed(java.awt.event.ActionEvent evt) { 

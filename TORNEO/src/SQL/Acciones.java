@@ -70,9 +70,38 @@ public class Acciones {
 		return false;
 	}
 
+	public static boolean insertarRegistroPartidoSQL(ArrayList<String[]> lista) {
+
+		try {
+			for(String[] i : lista){
+				Iniciar.sql = "INSERT INTO `partido` (`local`, `golesLocal`, `totalTirosLocal`, `pasesCompletadosLocal`, `posesionLocal`, `visitante`, `golesVisitante`, `totalTirosVisitante`, `pasesCompletadossVisitante`, `posesionV`, `momentum`)"
+				+ "VALUES ('"+ i[0].toLowerCase() +"', '"+ i[1].toLowerCase() +"', '"+ i[2].toLowerCase() +"', '"+ i[3].toLowerCase() +"', '"+ i[4].toLowerCase() +"', '"+ i[5].toLowerCase() +"', '"+ i[6].toLowerCase() +"', '"+ i[7].toLowerCase() +"', '"+ i[8].toLowerCase() +"', '"+ i[9].toLowerCase() +"', '"+ i[10].toLowerCase() +"');";
+				Iniciar.stmt.executeUpdate(Iniciar.sql);
+			}
+			
+		} catch (SQLException e) {
+			return true;
+		}
+		return false;
+	}
+
 	public static boolean modificarDatoSQL(String valor,String tabla,String columna,Object id,String columnaID) {
 		try {
 			Iniciar.sql = "UPDATE "+tabla+" SET "+columna+" = '"+valor+"' " 
+				+ "WHERE "+columnaID+" = '"+id+"';"
+			;
+			Iniciar.stmt.executeUpdate(Iniciar.sql);
+
+		} catch (SQLException e) {
+			System.out.println(e);
+			return true;
+		}
+		return false;
+	}
+
+	public static boolean AumentarDatoSQL(String valor,String tabla,String columna,Object id,String columnaID) {
+		try {
+			Iniciar.sql = "UPDATE "+tabla+" SET "+columna+" = '"+valor+"' + "+columna+" " 
 				+ "WHERE "+columnaID+" = '"+id+"';"
 			;
 			Iniciar.stmt.executeUpdate(Iniciar.sql);
@@ -147,5 +176,36 @@ public class Acciones {
 			
 		} catch (SQLException e) {}
 		return null;
+	}
+
+	public static ArrayList<String[]> getEquipoGrupo(){
+		Iniciar.sql = "Select nombre,grupo from equipo;";
+		ArrayList<String[]> lista = new ArrayList<>();
+
+		try {
+			ResultSet rs = Iniciar.stmt.executeQuery(Iniciar.sql);
+
+			while (rs.next()) {
+				String[] equipoGrupo = new String[]{rs.getString("nombre"),rs.getString("grupo")};
+				lista.add(equipoGrupo);
+			}
+
+		} catch (Exception e) {
+			System.out.println("fallo");
+		}
+		return lista;
+	}
+
+	public static int contarPartidos() {
+		try {
+			Iniciar.sql = "SELECT COUNT(*) FROM PARTIDO;";
+			ResultSet rs = Iniciar.stmt.executeQuery(Iniciar.sql);
+
+			while (rs.next()) {
+				return rs.getInt("count(*)");
+			}
+
+		} catch (SQLException e) {}
+		return 0;
 	}
 }

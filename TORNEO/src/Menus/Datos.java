@@ -1,6 +1,13 @@
 package Menus;
 
+import java.awt.Component;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 import Otros.PaginaWeb;
+import SQL.Acciones;
+import torneo.Clasificacion;
 
 public class Datos extends BarraMenu {
 
@@ -47,19 +54,36 @@ public class Datos extends BarraMenu {
                 }
             });
 
-            registrar.setText("Registrar "+tipoDato);
-            registrar.addActionListener(new java.awt.event.ActionListener() {
+            if (tipoDato!="clasificacion") {
+                registrar.setText("Registrar "+tipoDato);
+                registrar.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        registrarActionPerformed(evt);
+                    }
+                }); 
+
+                importar.setText("Importar "+tipoDato);
+                importar.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        importarActionPerformed(evt);
+                    }
+                });
+
+            }else{
+                registrar.setText("Registrar Partido");
+                registrar.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     registrarActionPerformed(evt);
                 }
-            });
+                });
 
-            importar.setText("Importar "+tipoDato);
-            importar.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    importarActionPerformed(evt);
-                }
-            });
+                modificar.setText("Generar Sorteo");
+                modificar.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        modificarActionPerformed(evt);
+                    }
+                });
+            }
         }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -216,9 +240,26 @@ public class Datos extends BarraMenu {
         pack();
     }// </editor-fold>       
 
-    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {  
-        setVisible(false);                                        
-        RegistrarDatos.ejecutar();
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        
+        switch (tipoDato) {
+            case "clasificacion":
+                ArrayList<String[]> lista = Acciones.getEquipoGrupo();
+                int tamaño = lista.size();
+                if (tamaño==8 || tamaño==16 || tamaño==32 || tamaño==64 || tamaño==128 && lista.get(0)[1] != "Z") {
+                    setVisible(false); 
+                    RegistrarDatos.ejecutar();
+                }else{
+                    Component jFrame = null;
+                    JOptionPane.showMessageDialog(jFrame, "Debe haber 8 16 32 64 o 128 equipos registrados"); 
+                }
+                break;
+        
+            default:
+            setVisible(false); 
+            RegistrarDatos.ejecutar();
+                break;
+        }
     }                                        
 
     private void sesionActionPerformed(java.awt.event.ActionEvent evt) {                                          
@@ -233,11 +274,11 @@ public class Datos extends BarraMenu {
             break;
 
             case "equipos":
-                PaginaWeb.abrirPagina("equipos.php");  
+                PaginaWeb.abrirPagina("equipos.html");  
             break;
 
             case "arbitros":
-                PaginaWeb.abrirPagina("arbitros.php"); 
+                PaginaWeb.abrirPagina("arbitros.html"); 
             break;
 
             case "usuarios":
@@ -245,29 +286,39 @@ public class Datos extends BarraMenu {
             break;
 
             case "clasificacion":
-                PaginaWeb.abrirPagina("clasificacion.php");
+                PaginaWeb.abrirPagina("torneo.html");
             break;
         }
     }                                        
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {
-        setVisible(false);  
-        ModificarDatos.ejecutar();                                      
-        
-    }                                        
-
-    private void importarActionPerformed(java.awt.event.ActionEvent evt) {     
-       setVisible(false);                                      
-        
         switch (tipoDato) {
             case "clasificacion":
-                sorteo();
+                ArrayList<String[]> lista = Acciones.getEquipoGrupo();
+                int tamaño = lista.size();
+                if ((tamaño==8 || tamaño==16 || tamaño==32 || tamaño==64 || tamaño==128) && lista.get(0)[1].equals("Z")) {
+                    Clasificacion.sorteo(lista); 
+                    Component jFrame = null;
+                    JOptionPane.showMessageDialog(jFrame, "SORTEO GENERADO"); 
+                }else if(lista.get(0)[1]=="Z"){
+                    Component jFrame = null;
+                    JOptionPane.showMessageDialog(jFrame, "Debe haber 8 16 32 64 o 128 equipos registrados"); 
+                }else{
+                    Component jFrame = null;
+                    JOptionPane.showMessageDialog(jFrame, "El sorteo ya se ha generado"); 
+                }
                 break;
         
             default:
-            ImportarDatos.ejecutar("jugador");
-                break;
-        }
+            setVisible(false);
+            ModificarDatos.ejecutar(); 
+            break;
+        } 
+    }                                        
+
+    private void importarActionPerformed(java.awt.event.ActionEvent evt) {     
+        setVisible(false);
+        ImportarDatos.ejecutar(tipoDato);
     }                                         
                 
     private javax.swing.JButton ver;

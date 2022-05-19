@@ -2,7 +2,7 @@ package torneo;
 
 public class Preguntas {
 
-    Auxiliar aux = new Auxiliar();
+    /*Auxiliar aux = new Auxiliar();
     Persona persona = new Persona();
     Registro registro = new Registro();
     Menus menu = new Menus();
@@ -377,5 +377,5 @@ public class Preguntas {
 			clasificacion.brackets();
 		}
 		
-	}
+	}*/
 }

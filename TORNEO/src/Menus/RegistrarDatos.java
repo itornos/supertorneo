@@ -55,6 +55,7 @@ public class RegistrarDatos extends BarraMenu {
             dorsal = new javax.swing.JTextField();
             equipo = new javax.swing.JTextField();
             salario = new javax.swing.JTextField();
+            visi = new javax.swing.JTextField();
             nacionalidad = new javax.swing.JTextField();
             jRadioButton2 = new javax.swing.JRadioButton();
             jRadioButton3 = new javax.swing.JRadioButton();
@@ -128,7 +129,7 @@ public class RegistrarDatos extends BarraMenu {
     
             jLabel12.setText("dorsal");
     
-            DNI.setText("12345678");
+            DNI.setText("");
     
             edad.setText("0");
     
@@ -150,7 +151,9 @@ public class RegistrarDatos extends BarraMenu {
             dorsal.setText("0");
     
             equipo.setText("");
-    
+
+            visi.setText("");
+
             salario.setText("0");
     
             jRadioButton2.setText("Disponible");
@@ -503,6 +506,127 @@ public class RegistrarDatos extends BarraMenu {
                             .addGap(42, 42, 42))
                     );
                     break;
+
+                    case "clasificacion":
+
+                    jLabel2.setText("Local");//Nombre
+    
+                    jLabel3.setText("Goles");//apellido
+            
+                    jLabel4.setText("Tiros");//edad
+            
+                    jLabel5.setText("Pases");//DNI
+            
+                    jLabel7.setText("Posesion");//sexo
+
+                    jLabel6.setText("Posesion");
+
+                    jLabel8.setText("Visitante");//equipo
+            
+                    jLabel9.setText("Pases");//nacionalidad
+            
+                    jLabel10.setText("Tiros");//posicion
+            
+                    jLabel12.setText("Goles");//dorsal
+                    
+                    jPanel1Layout.setHorizontalGroup(
+                        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel4)
+                                                .addComponent(jLabel5))
+                                            .addGap(28, 28, 28)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(edad)
+                                                .addComponent(DNI)))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(nombre))
+                                    
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel3)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(apellido))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(salario, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                            .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addGap(39, 39, 39)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel12)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel7))
+                                    .addGap(34, 34, 34)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(sexo)
+                                        .addComponent(dorsal, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                        .addComponent(posicion, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                        .addComponent(dorsal, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                        .addComponent(visi, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nacionalidad, javax.swing.GroupLayout.Alignment.LEADING)
+                                        )
+                                    .addGap(33, 33, 33))))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    );
+                    jPanel1Layout.setVerticalGroup(
+                        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(26, 26, 26)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2)
+                                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8)
+                                .addComponent(visi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel3)
+                                .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel12)
+                                .addComponent(dorsal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel10)
+                                .addComponent(posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(DNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9)
+                                .addComponent(dorsal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(22, 22, 22)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7)
+                                .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(salario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                )
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(40, 40, 40))
+                    );
+                break;
             }  
     
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -523,12 +647,11 @@ public class RegistrarDatos extends BarraMenu {
             
             ArrayList<String []> lista = new ArrayList<String []>();
 
-            if(prueba()){
-                return;
-            }  
-
             switch (Datos.tipoDato) {
                 case "jugadores":
+                    if(prueba()){
+                        return;
+                    }  
                     String [] jugador = new String[]{DNI.getText(),nombre.getText(),apellido.getText(),edad.getText(),sexo.getText(),nacionalidad.getText(),grupobtn.getSelection().getActionCommand(),posicion.getText(),equipo.getText(),dorsal.getText(),salario.getText()};
                     lista.add(jugador);
                     if(Acciones.insertarRegistroJugadorSQL(lista)){
@@ -537,6 +660,9 @@ public class RegistrarDatos extends BarraMenu {
                     }  
                 break;
                 case "arbitros":
+                    if(prueba()){
+                        return;
+                    }  
                     String [] arbitro = new String[]{DNI.getText(),nombre.getText(),apellido.getText(),edad.getText(),sexo.getText(),grupobtn.getSelection().getActionCommand()};
                     lista.add(arbitro);
                     if(Acciones.insertarRegistroArbitroSQL(lista)){
@@ -552,6 +678,9 @@ public class RegistrarDatos extends BarraMenu {
                         return; 
                     }  
                 case "usuarios":
+                    if(prueba()){
+                        return;
+                    }  
                     String pass1 = new String (jPasswordField1.getPassword());
                     String pass2 = new String (jPasswordField1.getPassword());
                     if (pass1.equals(pass2)) {
@@ -565,6 +694,20 @@ public class RegistrarDatos extends BarraMenu {
                         JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
                         return; 
                     } 
+                break;
+                case "clasificacion":
+                    if(Acciones.contarPartidos() < Acciones.getEquipoGrupo().size()*3){
+                        String [] partido = new String[]{nombre.getText(),apellido.getText(),edad.getText(),DNI.getText(),salario.getText(),visi.getText(),dorsal.getText(),posicion.getText(),nacionalidad.getText(),sexo.getText(),"grupos"};
+                        lista.add(partido);
+                        if(Acciones.insertarRegistroPartidoSQL(lista)){
+                            JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos");  
+                            return;
+                        }
+                        actualizarDatos();
+                    }else{
+                        JOptionPane.showMessageDialog(jFrame, "YA SE HAN REGISTRADO TODOS LOS PARTIDOS DE LA FASE DE GRUPOS");  
+                        return;
+                    }
                 break;
             }
             JOptionPane.showMessageDialog(jFrame, "datos insertados correctamente"); 
@@ -589,6 +732,42 @@ public class RegistrarDatos extends BarraMenu {
                 return true;
             }
             return false;
+        }
+
+        private void actualizarDatos(){
+            int dif_local = Integer.parseInt(apellido.getText()) - Integer.parseInt(dorsal.getText());
+            int dif_vis = Integer.parseInt(dorsal.getText()) - Integer.parseInt(apellido.getText());
+            //LOCAL
+            Acciones.AumentarDatoSQL(apellido.getText(), "equipo", "gol_favor", nombre.getText(), "nombre");//goles favor
+            Acciones.AumentarDatoSQL(dorsal.getText(), "equipo", "gol_contra", nombre.getText(), "nombre");//goles contra 
+            Acciones.AumentarDatoSQL(dif_local+"", "equipo", "dif_goles", nombre.getText(), "nombre");//dif goles 
+            //VISITANTE
+            Acciones.AumentarDatoSQL(dorsal.getText(), "equipo", "gol_favor", visi.getText(), "nombre");//goles favor 
+            Acciones.AumentarDatoSQL(apellido.getText(), "equipo", "gol_contra", visi.getText(), "nombre");//goles contra
+            Acciones.AumentarDatoSQL(dif_vis+"", "equipo", "dif_goles", visi.getText(), "nombre");//dif goles 
+                        
+            if (dif_local>0) {
+                //GANA LOCAL
+                Acciones.AumentarDatoSQL("3", "equipo", "puntos", nombre.getText(), "nombre");//puntos local
+                Acciones.AumentarDatoSQL("0", "equipo", "puntos", visi.getText(), "nombre");//puntos visitante
+                Acciones.AumentarDatoSQL("1", "equipo", "ganado", nombre.getText(), "nombre");//ganado
+                Acciones.AumentarDatoSQL("1", "equipo", "perdido", visi.getText(), "nombre");//perdido
+            } else if(dif_local!=0) {
+                //GANA VISITANTE
+                Acciones.AumentarDatoSQL("0", "equipo", "puntos", nombre.getText(), "nombre");//puntos local
+                Acciones.AumentarDatoSQL("3", "equipo", "puntos", visi.getText(), "nombre");//puntos visitante
+                Acciones.AumentarDatoSQL("1", "equipo", "perdido", nombre.getText(), "nombre");//ganado
+                Acciones.AumentarDatoSQL("1", "equipo", "ganado", visi.getText(), "nombre");//perdido 
+            }else{
+                //EMPATE
+                Acciones.AumentarDatoSQL("1", "equipo", "puntos", nombre.getText(), "nombre");//puntos local
+                Acciones.AumentarDatoSQL("1", "equipo", "puntos", visi.getText(), "nombre");//puntos visitante 
+                Acciones.AumentarDatoSQL("1", "equipo", "empate", nombre.getText(), "nombre");//empate
+                Acciones.AumentarDatoSQL("1", "equipo", "empate", visi.getText(), "nombre");//empate
+            }
+
+            Acciones.AumentarDatoSQL("1", "equipo", "partidos_jugados", nombre.getText(), "nombre");//Partidos jugados
+            Acciones.AumentarDatoSQL("1", "equipo", "partidos_jugados", visi.getText(), "nombre");//Partidos jugados
         }
                    
         private javax.swing.JButton jButton1;
@@ -615,6 +794,7 @@ public class RegistrarDatos extends BarraMenu {
         private javax.swing.JTextField posicion;
         private javax.swing.JTextField dorsal;
         private javax.swing.JTextField equipo;
+        private javax.swing.JTextField visi;
         private javax.swing.JTextField salario;
         private javax.swing.JTextField edad;
         private javax.swing.JTextField apellido;
