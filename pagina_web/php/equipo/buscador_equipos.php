@@ -1,9 +1,3 @@
-<?php 
-    
-    $conexion=mysqli_connect('localhost','root','','torneo');
-    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING); 
-
-?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>

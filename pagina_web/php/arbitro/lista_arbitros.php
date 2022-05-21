@@ -1,6 +1,6 @@
 <?php
 
-  $conexion=mysqli_connect('localhost','root','','torneo');
+require_once "../conexion.php";
 
 ?>
     <!DOCTYPE html>
@@ -109,9 +109,8 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
                                 <td class="u-border-2 u-border-no-bottom u-border-no-top u-border-palette-5-light-1 u-palette-1-base u-table-cell u-table-cell-9">FALTAS</td>
                             </tr>
                         <?php
-
                         $sql="SELECT * FROM arbitro ORDER BY nombre DESC";
-                        $result=mysqli_query($conexion,$sql);
+                        $result=$mysqli->query($sql);
                 
                         while($mostrar=mysqli_fetch_array($result)){
                 

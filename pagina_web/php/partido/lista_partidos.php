@@ -1,6 +1,6 @@
 <?php
 
-  $conexion=mysqli_connect('localhost','root','','torneo');
+require_once "../conexion.php";
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +72,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         <?php
 
         $sql="SELECT * FROM partido";
-        $result=mysqli_query($conexion,$sql);
+        $result=$mysqli->query($sql);
 
         while($mostrar=mysqli_fetch_array($result)){
 

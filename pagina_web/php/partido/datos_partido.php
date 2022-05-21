@@ -1,6 +1,6 @@
 <?php 
     
-    $conexion=mysqli_connect('localhost','root','','torneo');
+    require_once "../conexion.php";
     error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING); 
 
 ?>
@@ -114,12 +114,11 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     </div>
 
     <?php 
-    require_once "../conexion.php";
 
     $str_arr = explode (",", $_POST['botonaso']);
     
     $sql="SELECT * FROM partido where local='".$str_arr[0]."' and visitante='".$str_arr[1]."' and momentum='".$str_arr[2]."'";
-    $result=mysqli_query($conexion,$sql);
+    $result=$mysqli->query($sql);
 
     $mostrar=mysqli_fetch_array($result);
     ?>

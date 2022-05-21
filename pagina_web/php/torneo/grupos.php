@@ -1,6 +1,6 @@
 <?php
 
-  $conexion=mysqli_connect('localhost','root','','torneo');
+require_once "../conexion.php";
 
 ?>
 <!DOCTYPE html>
@@ -76,10 +76,13 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         <?php
 
         $sql="SELECT DISTINCT grupo FROM equipo order by grupo";
-        $result=mysqli_query($conexion,$sql);
+        $result=$mysqli->query($sql);
 
         while($mostrar=mysqli_fetch_array($result)){
-
+          if (strtoupper($mostrar['grupo']) == "Z") {
+            ?><br><h1 style="color: black;">TODAVIA NO SE HA GENERADO EL SORTEO</h1><?php
+            break;
+          }else {
         ?>
         <h1 style="color: black;" class="u-align-left u-text u-text-2">GRUPO <?php echo strtoupper($mostrar['grupo']) ?></h1>
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
@@ -114,7 +117,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
               <?php
 
               $sql="SELECT * FROM equipo where grupo = '".$mostrar['grupo']. "'";
-              $result2=mysqli_query($conexion,$sql);
+              $result2=$mysqli->query($sql);
 
               while($mostrar2=mysqli_fetch_array($result2)){
 
@@ -136,7 +139,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
           </table>
         </div>
         <br><br><br><br><br>
-        <?php } ?>
+        <?php }} ?>
         <br><br><br><br>
       </div>
     </section>
