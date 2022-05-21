@@ -116,7 +116,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
             <tbody class="u-align-center u-palette-5-dark-3 u-table-body u-table-body-1">
               <?php
 
-              $sql="SELECT * FROM equipo where grupo = '".$mostrar['grupo']. "'";
+              $sql="SELECT * FROM equipo where grupo = '".$mostrar['grupo']."' order by puntos desc";
               $result2=$mysqli->query($sql);
 
               while($mostrar2=mysqli_fetch_array($result2)){
