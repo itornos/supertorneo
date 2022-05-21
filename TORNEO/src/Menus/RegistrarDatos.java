@@ -659,7 +659,11 @@ public class RegistrarDatos extends BarraMenu {
                     RegistrarUsuario();
                 break;
                 case "clasificacion":
-                    RegistrarPartido();
+                    
+                    RegistrarPartido();///////////////////////////////      REGISTRO NORMAL        /////////////////////////////////
+                    /*
+                    AutoActualizarDatos();////////////////////////////    REGISTRO AUTOMATICO      /////////////////////////////////
+                    */
                 break;
             }
         }
@@ -728,7 +732,8 @@ public class RegistrarDatos extends BarraMenu {
             ArrayList<String []> lista = new ArrayList<String []>();
             String [] loc = Select.getEquipo(nombre.getText());
             String [] vis = Select.getEquipo(visi.getText());
-            if(Select.contarPartidos() < Select.getTodosEquipos().size()*3 && vis[1].equals(loc[1])){
+
+            if(vis[1].equals(loc[1])){
                     if (Integer.parseInt(sexo.getText()) + Integer.parseInt(salario.getText()) !=100) {
                         JOptionPane.showMessageDialog(jFrame, "La posesion es un porcentaje sobre 100 repatido entre los 2 equipos");  
                         return;
@@ -739,7 +744,8 @@ public class RegistrarDatos extends BarraMenu {
                         JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos");  
                         return;
                     }
-                    actualizarDatos();
+                    GanaPierde(nombre.getText(), Integer.parseInt(apellido.getText()), visi.getText(), Integer.parseInt(dorsal.getText()));
+
             }else{
                 JOptionPane.showMessageDialog(jFrame, "YA SE HAN REGISTRADO TODOS LOS PARTIDOS DE LA FASE DE GRUPOS");  
                 return;
@@ -747,20 +753,43 @@ public class RegistrarDatos extends BarraMenu {
             JOptionPane.showMessageDialog(jFrame, "datos insertados correctamente"); 
         }
 
-        private void actualizarDatos(){
-            int dif_local = Integer.parseInt(apellido.getText()) - Integer.parseInt(dorsal.getText());
-            int dif_vis = Integer.parseInt(dorsal.getText()) - Integer.parseInt(apellido.getText());
+        private void AutoActualizarDatos(){
+            ArrayList<String []> lista = new ArrayList<String []>();
 
-            if (dif_local>0) {
-                Update.AumentarDatoSQL(apellido.getText(), dorsal.getText(), dif_local+"", "3", nombre.getText(),"ganado");//LOCAL
-                Update.AumentarDatoSQL(dorsal.getText(), apellido.getText(), dif_vis+"", "0", visi.getText(),"perdido");//VISTANTE
-            } else if(dif_local!=0) {
-                Update.AumentarDatoSQL(apellido.getText(), dorsal.getText(), dif_local+"", "0", nombre.getText(),"perdido");//LOCAL
-                Update.AumentarDatoSQL(dorsal.getText(), apellido.getText(), dif_vis+"", "3", visi.getText(),"ganado");//VISTANTE
+            ArrayList<String[]> equipos = Select.getTodosEquipos();
+            int tamaño = equipos.size();
+        
+            int goloc;
+            int golvis;
+            
+            for (int i = 0; i < tamaño; i++) {
+                for (int j = 0; j < tamaño; j++) {
+                    if(equipos.get(i)[1].equals(equipos.get(j)[1]) && !equipos.get(i)[0].equals(equipos.get(j)[0])){
+                        goloc = (int) (Math.random()*5);
+                        golvis = (int) (Math.random()*5);
+                        String [] partido = new String[]{equipos.get(i)[0],goloc+"",(int) (Math.random()*20) +"",(int) (Math.random()*20) +"",(int) (Math.random()*20) +"",equipos.get(j)[0],golvis+"",(int) (Math.random()*20) +"",(int) (Math.random()*20) +"",(int) (Math.random()*20) +"","grupos"};
+                        lista.add(partido);
+                        if(!Insert.insertarRegistroPartidoSQL(lista)){
+                            GanaPierde(equipos.get(i)[0], goloc, equipos.get(j)[0], golvis);
+                        } 
+                        lista.remove(0);
+                    }  
+                }
+            }      
+        }
+
+        private void GanaPierde(String loc,int goloc,String vis,int golvis){
+            int dif_gol = goloc-golvis;
+            if (dif_gol>0) {
+                Update.AumentarDatoSQL(goloc+"", golvis+"", dif_gol+"", "3", loc,"ganado");//LOCAL
+                Update.AumentarDatoSQL(golvis+"", goloc+"", dif_gol+"", "0", vis,"perdido");//VISTANTE
+            } else if(dif_gol!=0) {
+                Update.AumentarDatoSQL(goloc+"", golvis+"", dif_gol+"", "0", loc,"perdido");//LOCAL
+                Update.AumentarDatoSQL(golvis+"", goloc+"", dif_gol+"", "3", vis,"ganado");//VISTANTE
             }else{
-                Update.AumentarDatoSQL(apellido.getText(), dorsal.getText(), dif_local+"", "1", nombre.getText(),"empate");//LOCAL
-                Update.AumentarDatoSQL(dorsal.getText(), apellido.getText(), dif_vis+"", "1", visi.getText(),"empate");//VISTANTE
-            }          
+                Update.AumentarDatoSQL(goloc+"", golvis+"", dif_gol+"", "1", loc,"empate");//LOCAL
+                Update.AumentarDatoSQL(golvis+"", goloc+"", dif_gol+"", "1", vis,"empate");//VISTANTE
+            } 
         }
 
         private boolean prueba(){

@@ -77,6 +77,13 @@ public class Datos extends BarraMenu {
                 }
                 });
 
+                importar.setText("Eliminatoria final !!!");
+                importar.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        importarActionPerformed(evt);
+                    }
+                });
+
                 modificar.setText("Generar Sorteo");
                 modificar.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,14 +252,16 @@ public class Datos extends BarraMenu {
         switch (tipoDato) {
             case "clasificacion":
                 ArrayList<String[]> lista = Select.getTodosEquipos();
+                Component jFrame = null;
                 int tamaño = lista.size();
                 if ((tamaño==8 || tamaño==16 || tamaño==32 || tamaño==64 || tamaño==128) && !lista.get(0)[1].equals("Z")) {
+                    if (Select.contarPartidos() == (tamaño*3)) {
+                        JOptionPane.showMessageDialog(jFrame, "SE DEBE GENERAR EL SORTEO PARA REGISTRAR PARTIDOS"); 
+                        return;
+                    }
                     setVisible(false); 
-                    System.out.println(lista.get(0)[1]);
-                    RegistrarDatos.ejecutar();///////
-
+                    RegistrarDatos.ejecutar();
                 }else{
-                    Component jFrame = null;
                     JOptionPane.showMessageDialog(jFrame, "SE DEBE GENERAR EL SORTEO PARA REGISTRAR PARTIDOS"); 
                 }
                 break;
@@ -317,9 +326,19 @@ public class Datos extends BarraMenu {
         } 
     }                                        
 
-    private void importarActionPerformed(java.awt.event.ActionEvent evt) {     
-        setVisible(false);
-        ImportarDatos.ejecutar(tipoDato);
+    private void importarActionPerformed(java.awt.event.ActionEvent evt) {   
+        if (!tipoDato.equals("clasificacion")) {
+            setVisible(false);
+            ImportarDatos.ejecutar(tipoDato);  
+        }else {
+                ArrayList<String[]> lista = Select.getTodosEquipos();
+                int tamaño = lista.size();
+            if (Select.contarPartidos() == (tamaño*3)) {
+                setVisible(false);
+                Clasificacion.eliminatoriaFinal(); 
+                return;
+            }  
+        }      
     }
                 
     private javax.swing.JButton ver;

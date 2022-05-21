@@ -73,6 +73,7 @@ public class Insert {
 			}
 			
 		} catch (SQLException e) {
+			System.out.println(e);
 			return true;
 		}
 		return false;

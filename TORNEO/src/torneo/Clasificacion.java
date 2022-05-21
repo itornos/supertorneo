@@ -3,6 +3,7 @@ package torneo;
 import java.util.ArrayList;
 
 import SQL.Update;
+import SQL.Select;
 
 public class Clasificacion {
     
@@ -24,6 +25,16 @@ public class Clasificacion {
 
 			//SE ELIMINA PARA EVITAR FALLOS
 			lista.remove(sorteazo);
+		}
+	}
+
+	public static void eliminatoriaFinal(){
+		int sd = Select.getTodosEquipos().size()/4;
+		String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		ArrayList<String[]> equipos = new ArrayList<>();
+		
+		for (int i = 0; i < sd; i++) {
+			equipos = Select.getPuntos(letras.charAt(i),equipos);
 		}
 	}
 }

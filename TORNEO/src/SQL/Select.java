@@ -118,4 +118,22 @@ public class Select {
 		} catch (SQLException e) {}
 		return 0;
 	}
+
+	public static ArrayList<String[]> getPuntos(char c, ArrayList<String[]> equipos){
+		Iniciar.sql = "SELECT * FROM equipo where grupo = '"+c+"' order by puntos desc";
+
+		try {
+			ResultSet rs = Iniciar.stmt.executeQuery(Iniciar.sql);
+			
+			for (int i = 0; i <= 1; i++) {
+				rs.next();
+				String[] equipoGrupo = new String[]{rs.getString("nombre"),rs.getString("grupo"),rs.getString("puntos")};
+				equipos.add(equipoGrupo);
+			}
+
+		} catch (Exception e) {
+			System.out.println("fallo");
+		}
+		return equipos;
+	}
 }

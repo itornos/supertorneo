@@ -48,6 +48,8 @@ public class Iniciar {
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost", "root", "");
 				try {
 					stmt = conn.createStatement();
+					/*String sql = "DROP DATABASE torneo;";
+					stmt.executeUpdate(sql);*/
 					String sql = "CREATE DATABASE torneo;";
 					System.out.println("Conexion con la base de datos exitosa");
 					stmt.executeUpdate(sql);			
