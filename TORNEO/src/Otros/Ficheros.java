@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import Menus.ImportarDatos;
-import SQL.Acciones;
+import SQL.Insert;
 
 public class Ficheros {
     public static ArrayList<String[]> leerFichero(String fichero) {
@@ -51,15 +51,15 @@ public class Ficheros {
             switch (ImportarDatos.tabla){
 
                 case "jugador":
-                    Acciones.insertarRegistroJugadorSQL(leerFichero(nombreFichero));
+                    Insert.insertarRegistroJugadorSQL(leerFichero(nombreFichero));
                 break;
 
                 case "arbitro":
-                    Acciones.insertarRegistroArbitroSQL(leerFichero(nombreFichero));
+                    Insert.insertarRegistroArbitroSQL(leerFichero(nombreFichero));
                 break;
 
                 case "equipo":
-                    Acciones.insertarRegistroEquipoSQL(leerFichero(nombreFichero));
+                    Insert.insertarRegistroEquipoSQL(leerFichero(nombreFichero));
                 break;
             }
             

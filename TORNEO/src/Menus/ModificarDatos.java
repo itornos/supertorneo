@@ -2,7 +2,8 @@ package Menus;
 
 import javax.swing.JOptionPane;
 
-import SQL.Acciones;
+import SQL.Select;
+import SQL.Update;
 
 import javax.swing.JFrame;
 
@@ -111,7 +112,7 @@ public class ModificarDatos extends BarraMenu {
 
             switch (Datos.tipoDato) {
                 case "jugadores":
-                        dato.setModel(new javax.swing.DefaultComboBoxModel<>(Acciones.verDatoSQL("jugador","ID_Jugador")));
+                        dato.setModel(new javax.swing.DefaultComboBoxModel<>(Select.verDatoSQL("jugador","ID_Jugador")));
                         dni.setText("DNI");
 
                         nombre.setText("NOMBRE");
@@ -227,7 +228,7 @@ public class ModificarDatos extends BarraMenu {
                     break;
 
                 case "arbitros":
-                    dato.setModel(new javax.swing.DefaultComboBoxModel<>(Acciones.verDatoSQL("arbitro","ID_arbitro")));
+                    dato.setModel(new javax.swing.DefaultComboBoxModel<>(Select.verDatoSQL("arbitro","ID_arbitro")));
                     dni.setText("DNI");
 
                     nombre.setText("NOMBRE");
@@ -313,7 +314,7 @@ public class ModificarDatos extends BarraMenu {
                     break;
 
                 case "equipos":
-                        dato.setModel(new javax.swing.DefaultComboBoxModel<>(Acciones.verDatoSQL("equipo","nombre")));
+                        dato.setModel(new javax.swing.DefaultComboBoxModel<>(Select.verDatoSQL("equipo","nombre")));
                         nombre.setText("NOMBRE");
 
                         javax.swing.GroupLayout PanelEquipo = new javax.swing.GroupLayout(jPanel1);
@@ -360,7 +361,7 @@ public class ModificarDatos extends BarraMenu {
                     break;
 
                 case "usuarios":
-                        dato.setModel(new javax.swing.DefaultComboBoxModel<>(Acciones.verDatoSQL("usuario","usuario")));
+                        dato.setModel(new javax.swing.DefaultComboBoxModel<>(Select.verDatoSQL("usuario","usuario")));
                         
                         nombre.setText("NOMBRE");
 
@@ -481,43 +482,43 @@ public class ModificarDatos extends BarraMenu {
 
         //modificar DNI
         if(jTextField1.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField1.getText(), "jugador", "DNI", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField1.getText(), "jugador", "DNI", dato.getSelectedItem(), "ID_Jugador");
         }
         //modificar Nombre
         if(jTextField2.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField2.getText(), "jugador", "nombre", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField2.getText(), "jugador", "nombre", dato.getSelectedItem(), "ID_Jugador");
         }
         //modificar Apellido
         if(jTextField3.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField3.getText(), "jugador", "apellido", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField3.getText(), "jugador", "apellido", dato.getSelectedItem(), "ID_Jugador");
         }
         //modificar Edad 
         if(jTextField4.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField4.getText(), "jugador", "edad", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField4.getText(), "jugador", "edad", dato.getSelectedItem(), "ID_Jugador");
         }
         //modificar sexo 
         if(jTextField5.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField5.getText(), "jugador", "sexo", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField5.getText(), "jugador", "sexo", dato.getSelectedItem(), "ID_Jugador");
         }
          //modificar nacionalidad
         if(jTextField6.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField6.getText(), "jugador", "nacionalidad", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField6.getText(), "jugador", "nacionalidad", dato.getSelectedItem(), "ID_Jugador");
         }
         //modificar Estado
         if(jTextField7.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField7.getText(), "jugador", "estado", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField7.getText(), "jugador", "estado", dato.getSelectedItem(), "ID_Jugador");
         }
         //modificar Posicion
         if(jTextField8.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField8.getText(), "jugador", "posicion", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField8.getText(), "jugador", "posicion", dato.getSelectedItem(), "ID_Jugador");
         }
         //modificar equipo
         if(jTextField9.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField6.getText(), "jugador", "equipo", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField6.getText(), "jugador", "equipo", dato.getSelectedItem(), "ID_Jugador");
         }
         //modificar dorsal
         if(jTextField10.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField6.getText(), "jugador", "dorsal", dato.getSelectedItem(), "ID_Jugador");
+            error = Update.modificarDatoSQL(jTextField6.getText(), "jugador", "dorsal", dato.getSelectedItem(), "ID_Jugador");
         }
 
         if(!error){
@@ -535,27 +536,27 @@ public class ModificarDatos extends BarraMenu {
         
         //modificar DNI
         if(jTextField1.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField1.getText(), "arbitro", "DNI", dato.getSelectedItem(), "ID_arbitro");
+            error = Update.modificarDatoSQL(jTextField1.getText(), "arbitro", "DNI", dato.getSelectedItem(), "ID_arbitro");
         }
         //modificar Nombre
         if(jTextField2.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField2.getText(), "arbitro", "nombre", dato.getSelectedItem(), "ID_arbitro");
+            error = Update.modificarDatoSQL(jTextField2.getText(), "arbitro", "nombre", dato.getSelectedItem(), "ID_arbitro");
         }
         //modificar Apellido
         if(jTextField3.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField3.getText(), "arbitro", "apellido", dato.getSelectedItem(), "ID_arbitro");
+            error = Update.modificarDatoSQL(jTextField3.getText(), "arbitro", "apellido", dato.getSelectedItem(), "ID_arbitro");
         }
          //modificar edad
         if(jTextField6.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField6.getText(), "arbitro", "edad", dato.getSelectedItem(), "ID_arbitro");
+            error = Update.modificarDatoSQL(jTextField6.getText(), "arbitro", "edad", dato.getSelectedItem(), "ID_arbitro");
         }
         //modificar sexo
         if(jTextField7.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField7.getText(), "arbitro", "sexo", dato.getSelectedItem(), "ID_arbitro");
+            error = Update.modificarDatoSQL(jTextField7.getText(), "arbitro", "sexo", dato.getSelectedItem(), "ID_arbitro");
         }
         //modificar estado
         if(jTextField8.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField8.getText(), "arbitro", "estado", dato.getSelectedItem(), "ID_arbitro");
+            error = Update.modificarDatoSQL(jTextField8.getText(), "arbitro", "estado", dato.getSelectedItem(), "ID_arbitro");
         }
 
         if(!error){
@@ -573,7 +574,7 @@ public class ModificarDatos extends BarraMenu {
         
         //modificar nombre equipo
         if(jTextField1.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField1.getText(), "equipo", "nombre", dato.getSelectedItem(), "nombre");
+            error = Update.modificarDatoSQL(jTextField1.getText(), "equipo", "nombre", dato.getSelectedItem(), "nombre");
         }
         
         if(!error){
@@ -591,13 +592,13 @@ public class ModificarDatos extends BarraMenu {
         
         //modificar nombre
         if(jTextField1.getText().length()!=0){
-            error = Acciones.modificarDatoSQL(jTextField1.getText(), "usuario", "usuario", dato.getSelectedItem(), "usuario");
+            error = Update.modificarDatoSQL(jTextField1.getText(), "usuario", "usuario", dato.getSelectedItem(), "usuario");
         }
 
         //modificar pass
         if(jTextField2.getText().length()!=0){
             if (jTextField2.getText().equals(jTextField3.getText())) {
-                error = Acciones.modificarDatoSQL(jTextField2.getText(), "usuario", "PASSWORD", dato.getSelectedItem(), "usuario");
+                error = Update.modificarDatoSQL(jTextField2.getText(), "usuario", "PASSWORD", dato.getSelectedItem(), "usuario");
             }else{
                 JOptionPane.showMessageDialog(jFrame, "La contraseña no coincide");
                 return false;
@@ -607,8 +608,8 @@ public class ModificarDatos extends BarraMenu {
         //modificar rol
         String role = (String) rol.getSelectedItem();
         
-        if (!role.equals(Acciones.getRol((String) dato.getSelectedItem()))) {
-            error = Acciones.modificarDatoSQL(role, "usuario", "rol", dato.getSelectedItem(), "usuario");
+        if (!role.equals(Select.getRol((String) dato.getSelectedItem()))) {
+            error = Update.modificarDatoSQL(role, "usuario", "rol", dato.getSelectedItem(), "usuario");
         }
         
         if(!error){

@@ -2,7 +2,7 @@ package torneo;
 
 import java.util.ArrayList;
 
-import SQL.Acciones;
+import SQL.Update;
 
 public class Clasificacion {
     
@@ -20,7 +20,7 @@ public class Clasificacion {
 
 			//UPDATE A LA TABLA EQUIPO PASANDO PARAMETROS IDENTIFICATORIOS Y VALOR A CAMBIAR JUNTO CON SU NUEVO VALOR
 			//1º VALOR NUEVO, 2º TABLA A ACTUALIZAR, 3º COLUMNA A ACTUALIZAR, 4º ID DEL EQUIPO Y 5º COLUMNA ID
-			Acciones.modificarDatoSQL(lista.get(sorteazo)[1],"equipo","grupo",lista.get(sorteazo)[0],"nombre");
+			Update.modificarDatoSQL(lista.get(sorteazo)[1],"equipo","grupo",lista.get(sorteazo)[0],"nombre");
 
 			//SE ELIMINA PARA EVITAR FALLOS
 			lista.remove(sorteazo);

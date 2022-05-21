@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import Otros.PaginaWeb;
-import SQL.Acciones;
+import SQL.Select;
 import torneo.Clasificacion;
 
 public class Datos extends BarraMenu {
@@ -244,14 +244,16 @@ public class Datos extends BarraMenu {
         
         switch (tipoDato) {
             case "clasificacion":
-                ArrayList<String[]> lista = Acciones.getEquipoGrupo();
+                ArrayList<String[]> lista = Select.getTodosEquipos();
                 int tamaño = lista.size();
-                if (tamaño==8 || tamaño==16 || tamaño==32 || tamaño==64 || tamaño==128 && lista.get(0)[1] != "Z") {
+                if ((tamaño==8 || tamaño==16 || tamaño==32 || tamaño==64 || tamaño==128) && !lista.get(0)[1].equals("Z")) {
                     setVisible(false); 
-                    RegistrarDatos.ejecutar();
+                    System.out.println(lista.get(0)[1]);
+                    RegistrarDatos.ejecutar();///////
+
                 }else{
                     Component jFrame = null;
-                    JOptionPane.showMessageDialog(jFrame, "Debe haber 8 16 32 64 o 128 equipos registrados"); 
+                    JOptionPane.showMessageDialog(jFrame, "SE DEBE GENERAR EL SORTEO PARA REGISTRAR PARTIDOS"); 
                 }
                 break;
         
@@ -281,10 +283,6 @@ public class Datos extends BarraMenu {
                 PaginaWeb.abrirPagina("arbitros.html"); 
             break;
 
-            case "usuarios":
-                
-            break;
-
             case "clasificacion":
                 PaginaWeb.abrirPagina("torneo.html");
             break;
@@ -294,13 +292,16 @@ public class Datos extends BarraMenu {
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {
         switch (tipoDato) {
             case "clasificacion":
-                ArrayList<String[]> lista = Acciones.getEquipoGrupo();
+                ArrayList<String[]> lista = Select.getTodosEquipos();
                 int tamaño = lista.size();
                 if ((tamaño==8 || tamaño==16 || tamaño==32 || tamaño==64 || tamaño==128) && lista.get(0)[1].equals("Z")) {
-                    Clasificacion.sorteo(lista); 
+
+                    Clasificacion.sorteo(lista);///////
+
                     Component jFrame = null;
-                    JOptionPane.showMessageDialog(jFrame, "SORTEO GENERADO"); 
-                }else if(lista.get(0)[1]=="Z"){
+                    JOptionPane.showMessageDialog(jFrame, "GENERANDO SORTEO"); 
+                    PaginaWeb.abrirPagina("php/torneo/grupos.php"); 
+                }else if(lista.get(0)[1].equals("Z")){
                     Component jFrame = null;
                     JOptionPane.showMessageDialog(jFrame, "Debe haber 8 16 32 64 o 128 equipos registrados"); 
                 }else{
@@ -319,7 +320,7 @@ public class Datos extends BarraMenu {
     private void importarActionPerformed(java.awt.event.ActionEvent evt) {     
         setVisible(false);
         ImportarDatos.ejecutar(tipoDato);
-    }                                         
+    }
                 
     private javax.swing.JButton ver;
     private javax.swing.JButton importar;

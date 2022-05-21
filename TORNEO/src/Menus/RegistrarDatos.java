@@ -6,7 +6,9 @@ import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import SQL.Acciones;
+import SQL.Insert;
+import SQL.Select;
+import SQL.Update;
 
 public class RegistrarDatos extends BarraMenu {
 
@@ -644,73 +646,121 @@ public class RegistrarDatos extends BarraMenu {
         }                     
         
         private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-            
-            ArrayList<String []> lista = new ArrayList<String []>();
-
             switch (Datos.tipoDato) {
                 case "jugadores":
-                    if(prueba()){
-                        return;
-                    }  
-                    String [] jugador = new String[]{DNI.getText(),nombre.getText(),apellido.getText(),edad.getText(),sexo.getText(),nacionalidad.getText(),grupobtn.getSelection().getActionCommand(),posicion.getText(),equipo.getText(),dorsal.getText(),salario.getText()};
-                    lista.add(jugador);
-                    if(Acciones.insertarRegistroJugadorSQL(lista)){
-                        JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos");  
-                        return;
-                    }  
+                    RegistrarJugador();
                 break;
                 case "arbitros":
-                    if(prueba()){
-                        return;
-                    }  
-                    String [] arbitro = new String[]{DNI.getText(),nombre.getText(),apellido.getText(),edad.getText(),sexo.getText(),grupobtn.getSelection().getActionCommand()};
-                    lista.add(arbitro);
-                    if(Acciones.insertarRegistroArbitroSQL(lista)){
-                        JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
-                        return; 
-                    }  
+                    RegistrarArbitro();
                 break;
                 case "equipos":
-                    String [] equipo = new String[]{nombre.getText()};
-                    lista.add(equipo);
-                    if(Acciones.insertarRegistroEquipoSQL(lista)){
-                        JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
-                        return; 
-                    }  
+                    RegistrarEquipo();
                 case "usuarios":
-                    if(prueba()){
-                        return;
-                    }  
-                    String pass1 = new String (jPasswordField1.getPassword());
-                    String pass2 = new String (jPasswordField1.getPassword());
-                    if (pass1.equals(pass2)) {
-                        String [] usuario = new String[]{nombre.getText(),pass1,grupobtn.getSelection().getActionCommand()};
-                        lista.add(usuario);
-                    }else{
-                        JOptionPane.showMessageDialog(jFrame, "La contraseña no coincide"); 
-                        return;
-                    }
-                    if(Acciones.insertarRegistroUsuarioSQL(lista)){
-                        JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
-                        return; 
-                    } 
+                    RegistrarUsuario();
                 break;
                 case "clasificacion":
-                    if(Acciones.contarPartidos() < Acciones.getEquipoGrupo().size()*3){
-                        String [] partido = new String[]{nombre.getText(),apellido.getText(),edad.getText(),DNI.getText(),salario.getText(),visi.getText(),dorsal.getText(),posicion.getText(),nacionalidad.getText(),sexo.getText(),"grupos"};
-                        lista.add(partido);
-                        if(Acciones.insertarRegistroPartidoSQL(lista)){
-                            JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos");  
-                            return;
-                        }
-                        actualizarDatos();
-                    }else{
-                        JOptionPane.showMessageDialog(jFrame, "YA SE HAN REGISTRADO TODOS LOS PARTIDOS DE LA FASE DE GRUPOS");  
-                        return;
-                    }
+                    RegistrarPartido();
                 break;
             }
+        }
+
+        private void RegistrarJugador(){
+            ArrayList<String []> lista = new ArrayList<String []>();
+            if(prueba()){
+                return;
+            }  
+            String [] jugador = new String[]{DNI.getText(),nombre.getText(),apellido.getText(),edad.getText(),sexo.getText(),nacionalidad.getText(),grupobtn.getSelection().getActionCommand(),posicion.getText(),equipo.getText(),dorsal.getText(),salario.getText()};
+            lista.add(jugador);
+            if(Insert.insertarRegistroJugadorSQL(lista)){
+                JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos");  
+                return;
+            } 
+            JOptionPane.showMessageDialog(jFrame, "datos insertados correctamente");  
+        }
+
+        private void RegistrarArbitro(){
+            ArrayList<String []> lista = new ArrayList<String []>();
+            if(prueba()){
+                return;
+            }  
+            String [] arbitro = new String[]{DNI.getText(),nombre.getText(),apellido.getText(),edad.getText(),sexo.getText(),grupobtn.getSelection().getActionCommand()};
+            lista.add(arbitro);
+            if(Insert.insertarRegistroArbitroSQL(lista)){
+                JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
+                return; 
+            } 
             JOptionPane.showMessageDialog(jFrame, "datos insertados correctamente"); 
+        }
+
+        private void RegistrarEquipo(){
+            ArrayList<String []> lista = new ArrayList<String []>();
+            String [] equipo = new String[]{nombre.getText()};
+            lista.add(equipo);
+            if(Insert.insertarRegistroEquipoSQL(lista)){
+                JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
+                return; 
+            } 
+            JOptionPane.showMessageDialog(jFrame, "datos insertados correctamente");  
+        }
+
+        private void RegistrarUsuario() {
+            ArrayList<String []> lista = new ArrayList<String []>();
+            if(prueba()){
+                return;
+            }  
+            String pass1 = new String (jPasswordField1.getPassword());
+            String pass2 = new String (jPasswordField1.getPassword());
+            if (pass1.equals(pass2)) {
+                String [] usuario = new String[]{nombre.getText(),pass1,grupobtn.getSelection().getActionCommand()};
+                lista.add(usuario);
+            }else{
+                JOptionPane.showMessageDialog(jFrame, "La contraseña no coincide"); 
+                return;
+            }
+            if(Insert.insertarRegistroUsuarioSQL(lista)){
+                JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos"); 
+                return; 
+            }
+            JOptionPane.showMessageDialog(jFrame, "datos insertados correctamente"); 
+        }
+
+        private void RegistrarPartido() {
+            ArrayList<String []> lista = new ArrayList<String []>();
+            String [] loc = Select.getEquipo(nombre.getText());
+            String [] vis = Select.getEquipo(visi.getText());
+            if(Select.contarPartidos() < Select.getTodosEquipos().size()*3 && vis[1].equals(loc[1])){
+                    if (Integer.parseInt(sexo.getText()) + Integer.parseInt(salario.getText()) !=100) {
+                        JOptionPane.showMessageDialog(jFrame, "La posesion es un porcentaje sobre 100 repatido entre los 2 equipos");  
+                        return;
+                    }
+                    String [] partido = new String[]{nombre.getText(),apellido.getText(),edad.getText(),DNI.getText(),salario.getText(),visi.getText(),dorsal.getText(),posicion.getText(),nacionalidad.getText(),sexo.getText(),"grupos"};
+                    lista.add(partido);
+                    if(Insert.insertarRegistroPartidoSQL(lista)){
+                        JOptionPane.showMessageDialog(jFrame, "Fallo al insertar los datos");  
+                        return;
+                    }
+                    actualizarDatos();
+            }else{
+                JOptionPane.showMessageDialog(jFrame, "YA SE HAN REGISTRADO TODOS LOS PARTIDOS DE LA FASE DE GRUPOS");  
+                return;
+            }
+            JOptionPane.showMessageDialog(jFrame, "datos insertados correctamente"); 
+        }
+
+        private void actualizarDatos(){
+            int dif_local = Integer.parseInt(apellido.getText()) - Integer.parseInt(dorsal.getText());
+            int dif_vis = Integer.parseInt(dorsal.getText()) - Integer.parseInt(apellido.getText());
+
+            if (dif_local>0) {
+                Update.AumentarDatoSQL(apellido.getText(), dorsal.getText(), dif_local+"", "3", nombre.getText(),"ganado");//LOCAL
+                Update.AumentarDatoSQL(dorsal.getText(), apellido.getText(), dif_vis+"", "0", visi.getText(),"perdido");//VISTANTE
+            } else if(dif_local!=0) {
+                Update.AumentarDatoSQL(apellido.getText(), dorsal.getText(), dif_local+"", "0", nombre.getText(),"perdido");//LOCAL
+                Update.AumentarDatoSQL(dorsal.getText(), apellido.getText(), dif_vis+"", "3", visi.getText(),"ganado");//VISTANTE
+            }else{
+                Update.AumentarDatoSQL(apellido.getText(), dorsal.getText(), dif_local+"", "1", nombre.getText(),"empate");//LOCAL
+                Update.AumentarDatoSQL(dorsal.getText(), apellido.getText(), dif_vis+"", "1", visi.getText(),"empate");//VISTANTE
+            }          
         }
 
         private boolean prueba(){
@@ -732,42 +782,6 @@ public class RegistrarDatos extends BarraMenu {
                 return true;
             }
             return false;
-        }
-
-        private void actualizarDatos(){
-            int dif_local = Integer.parseInt(apellido.getText()) - Integer.parseInt(dorsal.getText());
-            int dif_vis = Integer.parseInt(dorsal.getText()) - Integer.parseInt(apellido.getText());
-            //LOCAL
-            Acciones.AumentarDatoSQL(apellido.getText(), "equipo", "gol_favor", nombre.getText(), "nombre");//goles favor
-            Acciones.AumentarDatoSQL(dorsal.getText(), "equipo", "gol_contra", nombre.getText(), "nombre");//goles contra 
-            Acciones.AumentarDatoSQL(dif_local+"", "equipo", "dif_goles", nombre.getText(), "nombre");//dif goles 
-            //VISITANTE
-            Acciones.AumentarDatoSQL(dorsal.getText(), "equipo", "gol_favor", visi.getText(), "nombre");//goles favor 
-            Acciones.AumentarDatoSQL(apellido.getText(), "equipo", "gol_contra", visi.getText(), "nombre");//goles contra
-            Acciones.AumentarDatoSQL(dif_vis+"", "equipo", "dif_goles", visi.getText(), "nombre");//dif goles 
-                        
-            if (dif_local>0) {
-                //GANA LOCAL
-                Acciones.AumentarDatoSQL("3", "equipo", "puntos", nombre.getText(), "nombre");//puntos local
-                Acciones.AumentarDatoSQL("0", "equipo", "puntos", visi.getText(), "nombre");//puntos visitante
-                Acciones.AumentarDatoSQL("1", "equipo", "ganado", nombre.getText(), "nombre");//ganado
-                Acciones.AumentarDatoSQL("1", "equipo", "perdido", visi.getText(), "nombre");//perdido
-            } else if(dif_local!=0) {
-                //GANA VISITANTE
-                Acciones.AumentarDatoSQL("0", "equipo", "puntos", nombre.getText(), "nombre");//puntos local
-                Acciones.AumentarDatoSQL("3", "equipo", "puntos", visi.getText(), "nombre");//puntos visitante
-                Acciones.AumentarDatoSQL("1", "equipo", "perdido", nombre.getText(), "nombre");//ganado
-                Acciones.AumentarDatoSQL("1", "equipo", "ganado", visi.getText(), "nombre");//perdido 
-            }else{
-                //EMPATE
-                Acciones.AumentarDatoSQL("1", "equipo", "puntos", nombre.getText(), "nombre");//puntos local
-                Acciones.AumentarDatoSQL("1", "equipo", "puntos", visi.getText(), "nombre");//puntos visitante 
-                Acciones.AumentarDatoSQL("1", "equipo", "empate", nombre.getText(), "nombre");//empate
-                Acciones.AumentarDatoSQL("1", "equipo", "empate", visi.getText(), "nombre");//empate
-            }
-
-            Acciones.AumentarDatoSQL("1", "equipo", "partidos_jugados", nombre.getText(), "nombre");//Partidos jugados
-            Acciones.AumentarDatoSQL("1", "equipo", "partidos_jugados", visi.getText(), "nombre");//Partidos jugados
         }
                    
         private javax.swing.JButton jButton1;

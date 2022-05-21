@@ -17,10 +17,10 @@ public class Iniciar {
 	public static void ejecutarSQL() {
 		conexion();
 		crearTablas();
-		Acciones.insertarRegistroEquipoSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\equipo.txt"));
-		Acciones.insertarRegistroJugadorSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\jugador.txt"));
-		Acciones.insertarRegistroArbitroSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\arbitro.txt"));
-		Acciones.insertarRegistroUsuarioSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\usuarios.txt"));
+		Insert.insertarRegistroEquipoSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\equipo.txt"));
+		Insert.insertarRegistroJugadorSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\jugador.txt"));
+		Insert.insertarRegistroArbitroSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\arbitro.txt"));
+		Insert.insertarRegistroUsuarioSQL(Ficheros.leerFichero("C:\\xampp\\htdocs\\supertorneo\\TORNEO\\usuarios.txt"));
 	}
 	
 	private static void conexion() {
@@ -89,7 +89,6 @@ public class Iniciar {
 				+ " `dif_goles` int(20) NOT NULL DEFAULT 0,"
 				+ " `puntos` int(20) NOT NULL DEFAULT 0,"
 				+ " `grupo` VARCHAR(1) NOT NULL DEFAULT 'Z',"
-				+ " `foto` VARCHAR(200),"
 				+ " PRIMARY KEY (`nombre`));"
 			;
 
@@ -196,7 +195,7 @@ public class Iniciar {
 			;
 
 			stmt.executeUpdate(sql);
-			System.out.println("Tabla usuario creada");
+			System.out.println("Tabla partido creada");
 			
 		} catch (SQLException e) {
 		}

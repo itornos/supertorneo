@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import Menus.Principal;
-import SQL.Acciones;
+import SQL.Select;
 
 public class Usuarios {
 
@@ -18,7 +18,7 @@ public class Usuarios {
 
 		try {
 
-			ResultSet consulta = Acciones.getUsuario(usu);
+			ResultSet consulta = Select.getUsuario(usu);
 
 			consulta.next();
 			
