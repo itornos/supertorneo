@@ -78,4 +78,19 @@ public class Insert {
 		}
 		return false;
 	}
+
+	public static boolean insertarFinalesSQL(ArrayList<String[]> lista) {
+
+		try {
+			for(String[] i : lista){
+				Iniciar.sql = "INSERT INTO `clafinal` (`nombre`, `eliminatoria`) VALUES ('"+i[0]+"', '"+i[1]+"')";
+				Iniciar.stmt.executeUpdate(Iniciar.sql);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e);
+			return true;
+		}
+		return false;
+	}
 }

@@ -3,6 +3,7 @@ package torneo;
 import java.util.ArrayList;
 
 import SQL.Update;
+import SQL.Insert;
 import SQL.Select;
 
 public class Clasificacion {
@@ -31,10 +32,22 @@ public class Clasificacion {
 	public static void eliminatoriaFinal(){
 		int sd = Select.getTodosEquipos().size()/4;
 		String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		ArrayList<String[]> equipos = new ArrayList<>();
+		ArrayList<String[]> listadoFinal = new ArrayList<>();
+		ArrayList<String[]> equipos  = new ArrayList<>();
 		
 		for (int i = 0; i < sd; i++) {
 			equipos = Select.getPuntos(letras.charAt(i),equipos);
 		}
+
+		int tamaño = equipos.size();
+
+		for (int i = 1; i <= tamaño; i++) {
+			int numero = (int) (Math.random()*equipos.size());
+			equipos.get(numero)[1] = String.valueOf(i);
+			listadoFinal.add(equipos.get(numero));
+			equipos.remove(numero);
+		}
+
+		Insert.insertarFinalesSQL(listadoFinal);
 	}
 }
