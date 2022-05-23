@@ -109,42 +109,68 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     </header>
     <table>
     <?php
-        error_reporting(E_ALL ^ E_NOTICE);
-        $equipos = array("Madrid","barsa","ayax","444","555","666","777","888","999","101010","111111","121212","131313","141414","151515","161616");
-        $posicion = array();
+    
+        error_reporting(E_ALL ^ E_WARNING);
+        $sql="SELECT * FROM clafinal";
+        $result=$mysqli->query($sql);
+        $posequipo = array();
+        $equipos = array();
+
+        while($mostrar=mysqli_fetch_array($result)){
+            array_push($equipos,$mostrar['nombre']);
+            array_push($posequipo,$mostrar['eliminatoria']);
+        }
+
+
         $tamaño = sizeof($equipos);
-        $primera = true;
-        $pos = 0;
         $cont=0;
 
         while ($tamaño%2==0) {
             $tamaño = $tamaño/2;
             $cont++;
         }
-        
+
+        $posicion = array();
         $tamaño = sizeof($equipos);
         $tabla = ($cont*sizeof($equipos))*2;
+        $cont=0;
 
-            //PRIMERA ELIMINATORIA
+        //PRIMERA ELIMINATORIA
         for ($i = 1; $i <= $tamaño ; $i++) {
             if($i%2!=0 && $i){
-                array_push($posicion, $i);
+                //array_push($posicion, $i);
+                $cont++;
+                $posicion += [$cont=>$i];
             }
         }
+
+        $pos = 1;
 
             //EL RESTO ELIMINATORIAS
-        for ($i = $tamaño+1; $i <= $tabla/2 ; $i++) {
+        /*for ($i = $tamaño+1; $i <= $tabla/2 ; $i++) {
             if (((($posicion[$pos]+$posicion[$pos+1])/2)+$tamaño)==$i) {
-                    $pos += 2;
-                    array_push($posicion, $i);
+                //array_push($posicion, $i);
+                $posicion += [$posicion[$pos].$posicion[$pos+1]=>$i];
+                $pos += 2;
             }
+        }*/
+            //EL RESTO ELIMINATORIAS
+        while($element = current($posicion)) {
+            $pro = key($posicion);
+            next($posicion);
+            $prim = key($posicion);
+            if ($prim != null) {
+                $posicion += [$pro.$prim=>((($posicion[$pro]+$posicion[$prim])/2)+$tamaño)];
+            }
+            next($posicion);
         }
 
-        $pos = 0;
         $lleno = false;
-
-        $sql="SELECT * FROM equipo";
-        $result=$mysqli->query($sql);
+        $cont =0;
+        $partidohecho = false;
+        $auxPos = array();
+        $auxPos = $posicion;
+        $uno = "";
 
         for ($i=1; $i < $tamaño; $i++) { 
             ?>
@@ -153,12 +179,50 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
             for ($j=$i; $j <= $tabla-($tamaño-$i); $j+=$tamaño) { 
             foreach ($posicion as &$pos) {
                 if ($pos==$j || $tabla-$pos==$j) {
-                    $mostrar=mysqli_fetch_array($result);
-                    ?>
-                    <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar['nombre'] ?>.png"><div id="asd">2</div> </td>
-                    <?php
+                    
+                    while($element = current($auxPos)) {
+                        $pro = key($auxPos);
+                        
+                        if ($pos == $auxPos[$pro]) {
+                            $pipas = $pos;
+                            break;
+                        }
+                        next($auxPos);
+                    }                    
+                    echo $pipas;
+                    
+                    foreach ($posequipo as &$equip) {
+                        $matriz1 = str_split($equip);
+                        for ($k=0; $k < sizeof($matriz1); $k++) {               
+                            $uno+=$matriz1[$k];
+                            if ($uno == $pro) {
+
+                                $partidohecho = true;
+
+                                $sql="SELECT * FROM clafinal where eliminatoria=".$equip."";
+                                $result=$mysqli->query($sql);
+                                $mostrar=mysqli_fetch_array($result);
+
+                                ?>
+                                <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar["nombre"] ?>.png"><div id="asd"></div> </td>
+                                <?php
+                                break;
+                            }
+                        }
+                        $uno="";
+                    }
+                    
+                    if (!$partidohecho) {
+                        ?>
+                        <td class="llena">PENDIENTE</td>
+                        <?php
+                    }else {
+                        $partidohecho = false;
+                    }
+                    $cont++;
                     $lleno = true; 
                     break;
+
                 }
             }
             if (!$lleno) {
