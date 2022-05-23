@@ -111,6 +111,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
     <?php
     
         error_reporting(E_ALL ^ E_WARNING);
+        
         $sql="SELECT * FROM clafinal";
         $result=$mysqli->query($sql);
         $posequipo = array();
@@ -138,7 +139,6 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         //PRIMERA ELIMINATORIA
         for ($i = 1; $i <= $tamaño ; $i++) {
             if($i%2!=0 && $i){
-                //array_push($posicion, $i);
                 $cont++;
                 $posicion += [$cont=>$i];
             }
@@ -146,14 +146,6 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
 
         $pos = 1;
 
-            //EL RESTO ELIMINATORIAS
-        /*for ($i = $tamaño+1; $i <= $tabla/2 ; $i++) {
-            if (((($posicion[$pos]+$posicion[$pos+1])/2)+$tamaño)==$i) {
-                //array_push($posicion, $i);
-                $posicion += [$posicion[$pos].$posicion[$pos+1]=>$i];
-                $pos += 2;
-            }
-        }*/
             //EL RESTO ELIMINATORIAS
         while($element = current($posicion)) {
             $pro = key($posicion);
@@ -166,7 +158,6 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
         }
 
         $lleno = false;
-        $cont =0;
         $partidohecho = false;
         $auxPos = array();
         $auxPos = $posicion;
@@ -178,18 +169,9 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
             <?php
             for ($j=$i; $j <= $tabla-($tamaño-$i); $j+=$tamaño) { 
             foreach ($posicion as &$pos) {
-                if ($pos==$j || $tabla-$pos==$j) {
-                    
-                    while($element = current($auxPos)) {
-                        $pro = key($auxPos);
+                if ($pos==$j) {
                         
-                        if ($pos == $auxPos[$pro]) {
-                            $pipas = $pos;
-                            break;
-                        }
-                        next($auxPos);
-                    }                    
-                    echo $pipas;
+                    $pro = array_search( $pos , $posicion);                                   
                     
                     foreach ($posequipo as &$equip) {
                         $matriz1 = str_split($equip);
@@ -204,7 +186,7 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
                                 $mostrar=mysqli_fetch_array($result);
 
                                 ?>
-                                <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar["nombre"] ?>.png"><div id="asd"></div> </td>
+                                <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar["nombre"] ?>.png"><div id="asd">2</div> </td>
                                 <?php
                                 break;
                             }
@@ -214,15 +196,62 @@ don&amp;apos;t look back., Stop pushing your clients into a corner., $ 29, $ 59,
                     
                     if (!$partidohecho) {
                         ?>
-                        <td class="llena">PENDIENTE</td>
+                        <td class="llena"><div id="asd">PENDIENTE</div></td>
                         <?php
                     }else {
                         $partidohecho = false;
                     }
-                    $cont++;
+
                     $lleno = true; 
                     break;
 
+                }else if ($tabla-$pos==$j) {
+                    $pro = array_search( $pos , $posicion);                                   
+                    switch ($pro) {
+                        case 1:
+                            $pro = 5;
+                            break;
+                        case 2:
+                            $pro = 6;
+                            break;
+                        case 3:
+                            $pro = 7;
+                            break;   
+                        case 4:
+                            $pro = 8;
+                        break;
+                    }
+                    foreach ($posequipo as &$equip) {
+                        $matriz1 = str_split($equip);
+                        for ($k=0; $k < sizeof($matriz1); $k++) {               
+                            $uno+=$matriz1[$k];
+                            if ($uno == $pro) {
+
+                                $partidohecho = true;
+
+                                $sql="SELECT * FROM clafinal where eliminatoria=".$equip."";
+                                $result=$mysqli->query($sql);
+                                $mostrar=mysqli_fetch_array($result);
+
+                                ?>
+                                <td class="llena"><img id="foto" src="../../imagenes_equipos_jugadores/<?php echo $mostrar["nombre"] ?>.png"><div id="asd">2</div> </td>
+                                <?php
+                                break;
+                            }
+                        }
+                        $uno="";
+                    }
+                    
+                    if (!$partidohecho) {
+                        ?>
+                        <td class="llena"><div id="asd">PENDIENTE</div></td>
+                        <?php
+                    }else {
+                        $partidohecho = false;
+                    }
+
+                    $lleno = true; 
+                    break;
                 }
             }
             if (!$lleno) {
